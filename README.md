@@ -1,5 +1,5 @@
 # Market3D
 
-Progetto "ancora in lavorazione" in collaborazione con https://github.com/Claudia-Laici
+Progetto "ancora in lavorazione" in collaborazione con https://github.com/Claudia-Laici/Claudia-Laici
 
 Descrizione:
