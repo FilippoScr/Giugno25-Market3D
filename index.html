@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+    <div>
+        <header><button id="btnTheme" class="btnTheme" title="Tema Chiaro/Scuro"><i
+                    class="fa-solid fa-sun"></i><span>Tocca
+                    qui!</span></button>
+            <h1>Market<span>3D</span></h1>
+            <div id="boxForW-Login" class="boxForW-Login"><button id="btnSaltaDentro" class="btnSaltaDentro"
+                    title="Accedi"><i class="fa-solid fa-person-through-window"></i><span>Salta dentro!</span></button>
+                <form id="loginForm" class="loginForm">
+                    <div>
+                        <label>Email: <input id="inputEmail" type="email" required autocomplete="username"></label>
+                        <label>Password: <input id="inputPassword" type="password" required autocomplete="current-password"></label>
+                        <div class="divBtnLogReg">
+                            <button type="button" id="btnRegister" class="btnRegister noColor">Registrati...</button>
+                            <button type="submit" id="btnLogin" class="btnLogin noColor">Accedi!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </header>
+        <!-- <i class="fa-solid fa-user-check"></i><span>Benvenuto Z!</span> -->
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-building-user"></i>About</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-cubes"></i>Products</a></li>
+                <li><a href="services.html"><i class="fa-solid fa-repeat"></i>Services</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-headset"></i>Contact</a></li>
+            </ul>
+        </nav>
+        <div class="boxMainAside">
+            <aside id="asideSX" class="asideSX">
+                <h2>Cosa ti serve?</h2>
+                <div class="search">
+                    <input type="search" id="inputSearch" class="inputSearch" name="search">
+                    <button type="button" id="buttonSearch" class="buttonSearch" name="search"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="boxPiuAcq">
+                    <h3>I più acquistati:</h3>
+                    <ul class="ulAsideSearch">
+                        <li>Prodotto 1</li>
+                        <li>Prodotto 2</li>
+                        <li>Prodotto 3</li>
+                        <li>Prodotto 4</li>
+                        <li>Prodotto 5</li>
+                        <li>Prodotto 6</li>
+                        <li>Prodotto 7</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main></main>
+
+            <aside id="asideCart" class="asideCart">
+                <h2>CARRELLOZZO <i class="fa-solid fa-cart-shopping"></i></h2>
+                <ul></ul>
+                <p></p>
+                <div class="asideCartDivBtn">
+                    <button id="btnTrashCart" class="btnTrashCart noColor">Svuota Carrello <i class="fa-solid fa-trash-can"></i></button>
+                    <button id="btnCartAcq" class="btnCartAcq noColor">Acquista... <i class="fa-solid fa-bag-shopping"></i></button>
+                </div>
+            </aside>
+        </div>
+        <footer>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </footer>
+    </div>
+    <script src="JS/script.js"></script>
+</body>
+
+</html>

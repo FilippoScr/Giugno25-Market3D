@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variabili */
+/* Tema chiaro (default) */
+[data-theme="light"] {
+    --bg-color: #00a8c6;
+    --bg-color_btn-input: #e7e7e7;
+    --icon-color: #00a8c6;
+    --h-a-li-input: #000000;
+    --color0: #e7e7e7;
+    --color1: #f0c864;
+    --color2: #ed9dff;
+    --color3: #494949;
+    --color3_Op1: #7b7b7b1a;
+    --text-p-color: #000000;
+    --text-s-color: #f09c00;
+    --text-t-color: #000000;
+    --border-color0: #e7e7e7;
+    --border-color1: #00a8c6;
+}
+
+/* Tema scuro */
+[data-theme="dark"] {
+    --bg-color: #d38900;
+    --bg-color_btn-input: #494949;
+    --icon-color: #f09c00;
+    --h-a-li-input: #f09c00;
+    --color0: #000000;
+    --color1: #494949;
+    --color2: #430069;
+    --color3: #e7e7e7;
+    --color3_Op1: #e7e7e71a;
+    --text-p-color: #e7e7e7;
+    --text-s-color: #f09c00;
+    --text-t-color: #f09c00;
+    --border-color0: #d38900;
+    --border-color1: #d38900;
+}
+
+/* STILE GENERICO PER TIPO DI ELEMENTI */
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+li,
+label,
+a,
+button,
+input {
+    color: var(--text-p-color);
+}
+
+h1 span {
+    color: var(--icon-color);
+}
+
+header,
+nav,
+main,
+.articolo,
+aside,
+footer,
+.loginForm > div,
+.boxPiuAcq,
+.cartBoxArt {
+    padding: 10px;
+}
+
+header,
+nav,
+main,
+.articolo,
+aside,
+footer,
+.loginForm,
+.boxPiuAcq,
+li,
+img,
+input,
+button:not(.btnTheme, .btnSaltaDentro) {
+    border-radius: 4px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1;
+}
+
+a {
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-p-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+input:not(header input) {
+    width: 50px;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
+input,
+button:not(.btnTheme, .btnSaltaDentro) {
+    border: 0;
+    padding: 4px;
+}
+
+input,
+button:not(.btnTheme, .btnSaltaDentro) {
+    background-color: var(--bg-color_btn-input);
+}
+
+button:enabled {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.fa-solid {
+    color: var(--icon-color);
+}
+
+nav .fa-solid {
+    margin-right: 4px;
+}
+
+.asideCart h2,
+/* .asideCart ul:not(:empty), */
+.search,
+.boxPiuAcq h3 {
+    margin-bottom: 10px;
+}
+
+/* FINE GENERICO */
+
+
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: var(--bg-color);
+    padding: 20px;
+}
+
+body > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+header {
+    position: relative;
+    background-color: var(--color1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Per una migliore gestione degli elementi nel label, "line-height: 23px;" migliora il centramento visivo */
+.btnTheme, .btnSaltaDentro {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+}
+
+.boxForW-Login {
+    position: relative;
+}
+
+.loginForm {
+    display: none;
+    position: absolute;
+    top: 110%;
+    right: -15px;
+    background: var(--color1);
+    border: 1px solid var(--border-color0);
+    z-index: 10;
+    width: 16vw;
+    box-shadow: 0 0 8px var(--color3);
+}
+
+.loginForm > div {
+    background: var(--color3_Op1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.divBtnLogReg {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-self: stretch;
+}
+
+/* .btnRegister {
+    text-decoration: none;
+    font-family: Arial;
+    font-size: 0.83333rem;
+} */
+
+header span:not(h1 span) {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+header i {
+    font-size: 18px;
+}
+
+nav {
+    background-color: var(--color0);
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav li {
+    background: var(--color1);
+    border: 1px solid var(--color1);
+    padding: 4px;
+}
+
+/* Contenitore di MAIN e ASIDE. */
+.boxMainAside {
+    display: flex;
+    gap: 10px;
+}
+
+/* MAIN e contenuto: */
+main {
+    width: 68%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--color1);
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+/* DIV NEL MAIN CONTENENTI ARTICOLI */
+.articolo {
+    min-height: 200px;
+    background: var(--color3_Op1);
+    border: 1px solid var(--border-color0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+main> :nth-child(1),
+main> :nth-child(2) {
+    width: calc(50% - 5px);
+}
+
+main> :nth-child(n+3) {
+    width: calc(25% - 7.5px);
+}
+
+.articolo img {
+    object-fit: cover;
+    background-color: var(--text-s-color);
+    margin: 12px 0;
+}
+
+/* IMG NEI DIV */
+main :nth-child(1) img,
+main :nth-child(2) img {
+    width: 360px;
+    height: 200px;
+}
+
+main :nth-child(n+3) img {
+    width: 240px;
+    height: 132px;
+}
+
+/* PRIMO P NEI DIV */
+.articolo p:first-of-type {
+    font-style: italic;
+}
+
+/* ASIDE e contenuto: */
+aside {
+    width: 16%;
+    background-color: var(--color2);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.asideSX h2 {
+    margin-bottom: 2px;
+}
+
+aside ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.asideCart ul {
+    align-self: stretch;
+}
+
+.asideCart>p {
+    font-size: 17px;
+}
+
+.asideCart ul:not(:empty)+p {
+    margin-top: 10px;
+}
+
+.cartBoxArt {
+    display: flex;
+    gap: 10px;
+    background: var(--color3_Op1);
+    border: 1px solid var(--border-color0);
+}
+
+/* Allinea il nome dell'articolo al bordo alto del contenitore: */
+.cartBoxArt h3 {
+    line-height: 13px;
+}
+
+.cartImg {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: var(--color1);
+}
+
+.cartDivArtQnt {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    /* per pulsante elimina absolute */
+    flex-grow: 1;
+}
+
+
+.asideCartDivBtn {
+    display: flex;
+    margin-top: 16px;
+    gap: 10px;
+}
+
+.asideCart button {
+    height: 23px;
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+    align-self: stretch;
+}
+
+.inputSearch {
+    flex-grow: 1;
+    font-size: 17px;
+}
+
+.fa-magnifying-glass {
+    font-size: 17px;
+}
+
+.boxPiuAcq {
+    background: var(--color3_Op1);
+    border: 1px solid var(--border-color0);
+}
+
+.ulAsideSearch {
+    text-align: center;
+}
+
+.ulAsideSearch li {
+    padding: 4px;
+}
+
+footer {
+    background-color: var(--color0);
+}
+
+
+.divAvvisoAgg {
+    position: relative;
+}
+
+.divAvvisoAgg span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color2);
+    color: var(--text-p-color);
+    border: 2px solid var(--border-color1);
+    border-radius: 16px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 0 8px var(--color3);
+    z-index: 10;
+    white-space: nowrap;
+    /* Balloon arrow */
+}
+
+/* .divAvvisoAgg span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border-width: 10px 10px 0 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+  filter: drop-shadow(0px 2px 2px rgba(0,0,0,1));
+} */
+
+
+
+/* .divAvvisoAgg span {
+  display: inline-block;
+  background: url('../img/fumetto.png') no-repeat center center;
+  background-size: contain;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 24px 40px 32px 40px; /* adatta i valori in base alla forma del balloon
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  white-space: nowrap;
+  min-width: 120px;opzionale, per evitare che il testo esca
+  min-height: 60px; opzionale, per adattare all'immagine
+  text-align: center;
+} */
