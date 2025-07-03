@@ -94,6 +94,14 @@ const artArray = [
   },
 ];
 
+/* const viewportWidth = window.innerWidth;
+console.log('Viewport width:', viewportWidth, 'px');
+console.log("viewport visibile:", window.innerWidth); // dovrebbe essere 2552
+console.log("document width:", document.documentElement.clientWidth);
+console.log("finestra esterna:", window.outerWidth); // dovrebbe essere 2560
+ */
+
+
 // Gestione Salta dentro!.
 const btnSaltaDentro = document.getElementById('btnSaltaDentro');
 const loginForm = document.getElementById('loginForm');
@@ -186,13 +194,14 @@ function avviso(divAvviso) {
 
   // Crea e aggiungi nuovo span
   const spanAvviso = document.createElement("span");
+  spanAvviso.classList.add("spanAvviso");
   spanAvviso.textContent = "Aggiunto al carrello!";
   divAvviso.appendChild(spanAvviso);
 
   // Rimuovi lo span dopo 1.5 secondi
   setTimeout(() => {
     divAvviso.removeChild(spanAvviso);
-  }, 1500);
+  }, 15000);
 }
 
 // Funzione per aggiungere un articolo al carrello: modifica28-29-17-articolo.
@@ -296,7 +305,7 @@ function aggiornaLista() {
     const liCart = document.createElement("li");
     liCart.classList.add("cartBoxArt");
     liCart.innerHTML = `<img src="${articolo.img}" alt="${articolo.altMessage}" class="cartImg">
-    <div class="cartDivArtQnt">
+    <div class="cartBoxArtQnt">
       <h3>${articolo.nome}</h3>
       <label>Quantità:
           <input 
@@ -314,6 +323,7 @@ function aggiornaLista() {
     inputCartQnt.addEventListener("change", () => aggiornaQuantitaCarrello(articolo));
     // Crea il bottone e aggiungi l'event listener
     const btnElimina = document.createElement("button");
+    btnElimina.classList.add("btnEraserCartBoxArt");
     Object.assign(btnElimina.style, {
       position: "absolute",
       right: "0px",
@@ -321,7 +331,7 @@ function aggiornaLista() {
     });
     btnElimina.innerHTML = `Elimina <i class="fa-solid fa-eraser"></i>`;
     btnElimina.addEventListener("click", () => eliminaProdotto(articolo));
-    liCart.querySelector(".cartDivArtQnt").appendChild(btnElimina);
+    liCart.querySelector(".cartBoxArtQnt").appendChild(btnElimina);
 
     ulCart.appendChild(liCart);
     totale += articolo.prezzo * articolo.quantita;

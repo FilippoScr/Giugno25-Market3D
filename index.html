@@ -11,17 +11,19 @@
 
 <body>
     <div>
-        <header><button id="btnTheme" class="btnTheme" title="Tema Chiaro/Scuro"><i
-                    class="fa-solid fa-sun"></i><span>Tocca
-                    qui!</span></button>
+        <header>
+            <div class="divBtnTheme"><button id="btnTheme" class="btnTheme" title="Tema Chiaro/Scuro"><i
+                        class="fa-solid fa-sun"></i><span>Tocca qui!</span></button></div>
             <h1>Market<span>3D</span></h1>
-            <div id="boxForW-Login" class="boxForW-Login"><button id="btnSaltaDentro" class="btnSaltaDentro"
-                    title="Accedi"><i class="fa-solid fa-person-through-window"></i><span>Salta dentro!</span></button>
+            <div id="boxForW-Login" class="boxForW-Login">
+                <button id="btnSaltaDentro" class="btnSaltaDentro" title="Accedi"><i
+                        class="fa-solid fa-person-through-window"></i><span>Salta dentro!</span></button>
                 <form id="loginForm" class="loginForm">
                     <div>
                         <label>Email: <input id="inputEmail" type="email" required autocomplete="username"></label>
-                        <label>Password: <input id="inputPassword" type="password" required autocomplete="current-password"></label>
-                        <div class="divBtnLogReg">
+                        <label>Password: <input id="inputPassword" type="password" required
+                                autocomplete="current-password"></label>
+                        <div class="divBtnRegLog">
                             <button type="button" id="btnRegister" class="btnRegister noColor">Registrati...</button>
                             <button type="submit" id="btnLogin" class="btnLogin noColor">Accedi!</button>
                         </div>
@@ -42,14 +44,14 @@
         <div class="boxMainAside">
             <aside id="asideSX" class="asideSX">
                 <h2>Cosa ti serve?</h2>
-                <div class="search">
+                <div class="searchBox">
                     <input type="search" id="inputSearch" class="inputSearch" name="search">
                     <button type="button" id="buttonSearch" class="buttonSearch" name="search"><i
                             class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 <div class="boxPiuAcq">
                     <h3>I più acquistati:</h3>
-                    <ul class="ulAsideSearch">
+                    <ul class="AsideSX_ul">
                         <li>Prodotto 1</li>
                         <li>Prodotto 2</li>
                         <li>Prodotto 3</li>
@@ -64,12 +66,17 @@
             <main></main>
 
             <aside id="asideCart" class="asideCart">
-                <h2>CARRELLOZZO <i class="fa-solid fa-cart-shopping"></i></h2>
+                <div>
+                    <h2>CARRELLOZZO</h2>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
                 <ul></ul>
                 <p></p>
                 <div class="asideCartDivBtn">
-                    <button id="btnTrashCart" class="btnTrashCart noColor">Svuota Carrello <i class="fa-solid fa-trash-can"></i></button>
-                    <button id="btnCartAcq" class="btnCartAcq noColor">Acquista... <i class="fa-solid fa-bag-shopping"></i></button>
+                    <button id="btnTrashCart" class="btnTrashCart noColor">Svuota Carrello <i
+                            class="fa-solid fa-trash-can"></i></button>
+                    <button id="btnCartAcq" class="btnCartAcq noColor">Acquista... <i
+                            class="fa-solid fa-bag-shopping"></i></button>
                 </div>
             </aside>
         </div>

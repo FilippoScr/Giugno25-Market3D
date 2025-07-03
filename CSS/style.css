@@ -4,6 +4,19 @@
     box-sizing: border-box;
 }
 
+/* html {
+  scrollbar-gutter: stable;
+}
+html, body {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+} */
+
 /* Variabili */
 /* Tema chiaro (default) */
 [data-theme="light"] {
@@ -46,45 +59,9 @@ h1,
 h2,
 h3,
 h4,
-p,
-span,
-li,
-label,
-a,
-button,
-input {
-    color: var(--text-p-color);
-}
-
-h1 span {
-    color: var(--icon-color);
-}
-
-header,
-nav,
-main,
-.articolo,
-aside,
-footer,
-.loginForm > div,
-.boxPiuAcq,
-.cartBoxArt {
-    padding: 10px;
-}
-
-header,
-nav,
-main,
-.articolo,
-aside,
-footer,
-.loginForm,
-.boxPiuAcq,
-li,
-img,
-input,
-button:not(.btnTheme, .btnSaltaDentro) {
-    border-radius: 4px;
+h5,
+h6 {
+    line-height: 1;
 }
 
 h1,
@@ -92,19 +69,41 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-    line-height: 1;
+h6,
+p,
+span,
+li,
+a,
+label,
+input,
+button {
+    color: var(--text-p-color);
 }
 
-a {
+h1 span {
+    color: var(--icon-color);
+}
+
+p,
+.AsideSX_ul li,
+label {
+    font-size: 17px;
+}
+
+header span:not(h1 span),
+.spanAvviso,
+a,
+.inputSearch {
     font-size: 18px;
     font-weight: 600;
-    text-decoration: none;
-    color: var(--text-p-color);
 }
 
 ul {
     list-style-type: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 input:not(header input) {
@@ -116,44 +115,71 @@ input:focus {
     outline: none;
 }
 
-input,
-button:not(.btnTheme, .btnSaltaDentro) {
-    border: 0;
-    padding: 4px;
-}
-
-input,
-button:not(.btnTheme, .btnSaltaDentro) {
-    background-color: var(--bg-color_btn-input);
-}
-
-button:enabled {
-  cursor: pointer;
-}
-
-button:disabled,
-input:disabled {
+input:disabled,
+button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-.fa-solid {
+button:enabled {
+    cursor: pointer;
+}
+
+input,
+button:not(.btnTheme, .btnSaltaDentro) {
+    border: 0;
+    padding: 4px;
+    background-color: var(--bg-color_btn-input);
+}
+
+input:not(.inputSearch),
+button:not(.btnTheme, .btnSaltaDentro, .buttonSearch) {
+    font-size: 15px;
+}
+
+i {
     color: var(--icon-color);
 }
 
-nav .fa-solid {
-    margin-right: 4px;
+i:not(main i, .asideCartDivBtn i, .fa-eraser) {
+    font-size: 24px;
 }
 
-.asideCart h2,
+header,
+.loginForm>div,
+nav,
+main,
+.articolo,
+aside,
+.boxPiuAcq,
+.cartBoxArt,
+footer {
+    padding: 10px;
+}
+
+header,
+.loginForm,
+nav,
+main,
+.articolo,
+aside,
+.boxPiuAcq,
+footer,
+li,
+img,
+input,
+button:not(.btnTheme, .btnSaltaDentro) {
+    border-radius: 4px;
+}
+
 /* .asideCart ul:not(:empty), */
-.search,
-.boxPiuAcq h3 {
+.searchBox,
+.boxPiuAcq h3,
+.asideCart h2 {
     margin-bottom: 10px;
 }
 
 /* FINE GENERICO */
-
 
 
 body {
@@ -168,6 +194,7 @@ body > div {
     gap: 10px;
 }
 
+/* HEADER */
 header {
     position: relative;
     background-color: var(--color1);
@@ -176,16 +203,26 @@ header {
     align-items: center;
 }
 
-/* Per una migliore gestione degli elementi nel label, "line-height: 23px;" migliora il centramento visivo */
-.btnTheme, .btnSaltaDentro {
+/* Lo stile dei 2 elementi sottostanti centra perfettamente H1 */
+.divBtnTheme {
     display: flex;
-    flex-direction: column;
-    background: none;
-    border: none;
+    justify-content: start;
+    width: 111px;
 }
 
 .boxForW-Login {
     position: relative;
+    display: flex;
+    justify-content: end;
+    width: 111px;
+}
+
+.btnTheme,
+.btnSaltaDentro {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
 }
 
 .loginForm {
@@ -208,28 +245,14 @@ header {
     gap: 10px;
 }
 
-.divBtnLogReg {
+.divBtnRegLog {
     display: flex;
     justify-content: center;
     gap: 20px;
     align-self: stretch;
 }
 
-/* .btnRegister {
-    text-decoration: none;
-    font-family: Arial;
-    font-size: 0.83333rem;
-} */
-
-header span:not(h1 span) {
-    font-size: 18px;
-    font-weight: 600;
-}
-
-header i {
-    font-size: 18px;
-}
-
+/* NAV */
 nav {
     background-color: var(--color0);
 }
@@ -245,15 +268,19 @@ nav li {
     padding: 4px;
 }
 
+nav i {
+    margin-right: 4px;
+}
+
 /* Contenitore di MAIN e ASIDE. */
 .boxMainAside {
     display: flex;
     gap: 10px;
 }
 
-/* MAIN e contenuto: */
+/* MAIN */
 main {
-    width: 68%;
+    width: calc(68% - 12px);
     display: flex;
     flex-wrap: wrap;
     background-color: var(--color1);
@@ -261,7 +288,7 @@ main {
     gap: 10px;
 }
 
-/* DIV NEL MAIN CONTENENTI ARTICOLI */
+/* DIV nel MAIN contenenti ARTICOLI */
 .articolo {
     min-height: 200px;
     background: var(--color3_Op1);
@@ -270,6 +297,7 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    gap: 8px;
 }
 
 main> :nth-child(1),
@@ -281,41 +309,41 @@ main> :nth-child(n+3) {
     width: calc(25% - 7.5px);
 }
 
+/* IMG ARTICOLI */
 .articolo img {
+    display: block;
     object-fit: cover;
     background-color: var(--text-s-color);
-    margin: 12px 0;
 }
 
-/* IMG NEI DIV */
 main :nth-child(1) img,
 main :nth-child(2) img {
-    width: 360px;
-    height: 200px;
+    width: 420px;
+    height: 280px;
 }
 
 main :nth-child(n+3) img {
     width: 240px;
-    height: 132px;
+    height: 160px;
 }
 
-/* PRIMO P NEI DIV */
+/* P DESCRIZIONE ARTICOLI */
 .articolo p:first-of-type {
     font-style: italic;
 }
 
-/* ASIDE e contenuto: */
+.articolo label {
+    margin-top: 12px;
+}
+
+/* ASIDE */
 aside {
-    width: 16%;
+    width: calc(16% - 4px);
     background-color: var(--color2);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-}
-
-.asideSX h2 {
-    margin-bottom: 2px;
 }
 
 aside ul {
@@ -324,12 +352,41 @@ aside ul {
     gap: 10px;
 }
 
-.asideCart ul {
+/* ASIDE SX */
+.asideSX h2 {
+    margin-bottom: 2px;
+}
+
+.searchBox {
+    display: flex;
+    gap: 10px;
     align-self: stretch;
 }
 
-.asideCart>p {
-    font-size: 17px;
+.inputSearch {
+    flex-grow: 1;
+}
+
+.boxPiuAcq {
+    background: var(--color3_Op1);
+    border: 1px solid var(--border-color0);
+}
+
+.AsideSX_ul {
+    text-align: center;
+}
+
+.AsideSX_ul li {
+    padding: 4px;
+}
+
+/* ASIDE CARRELLO */
+.asideCart h2 {
+    display: inline-block;
+}
+
+.asideCart ul {
+    align-self: stretch;
 }
 
 .asideCart ul:not(:empty)+p {
@@ -343,11 +400,6 @@ aside ul {
     border: 1px solid var(--border-color0);
 }
 
-/* Allinea il nome dell'articolo al bordo alto del contenitore: */
-.cartBoxArt h3 {
-    line-height: 13px;
-}
-
 .cartImg {
     width: 50px;
     height: 50px;
@@ -356,15 +408,18 @@ aside ul {
     background-color: var(--color1);
 }
 
-.cartDivArtQnt {
+.cartBoxArtQnt {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    /* per pulsante elimina absolute */
     flex-grow: 1;
 }
 
+/* Allinea il nome dell'articolo al bordo alto del contenitore: */
+.cartBoxArtQnt h3 {
+    line-height: 13px;
+}
 
 .asideCartDivBtn {
     display: flex;
@@ -372,48 +427,19 @@ aside ul {
     gap: 10px;
 }
 
-.asideCart button {
-    height: 23px;
-}
-
-.search {
-    display: flex;
-    gap: 10px;
-    align-self: stretch;
-}
-
-.inputSearch {
-    flex-grow: 1;
-    font-size: 17px;
-}
-
-.fa-magnifying-glass {
-    font-size: 17px;
-}
-
-.boxPiuAcq {
-    background: var(--color3_Op1);
-    border: 1px solid var(--border-color0);
-}
-
-.ulAsideSearch {
+/* FOOTER */
+footer {
+    background-color: var(--color0);
     text-align: center;
 }
 
-.ulAsideSearch li {
-    padding: 4px;
-}
-
-footer {
-    background-color: var(--color0);
-}
-
-
+/* AVVISO "Aggiunto al carrello!" */
+/* Questo div contiene anche img articoli. */
 .divAvvisoAgg {
     position: relative;
 }
 
-.divAvvisoAgg span {
+.spanAvviso {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -423,27 +449,10 @@ footer {
     border: 2px solid var(--border-color1);
     border-radius: 16px;
     padding: 8px 18px;
-    font-size: 1rem;
-    font-weight: bold;
     box-shadow: 0 0 8px var(--color3);
     z-index: 10;
     white-space: nowrap;
-    /* Balloon arrow */
 }
-
-/* .divAvvisoAgg span::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translateX(-50%);
-  border-width: 10px 10px 0 10px;
-  border-style: solid;
-  border-color: #fff transparent transparent transparent;
-  filter: drop-shadow(0px 2px 2px rgba(0,0,0,1));
-} */
-
-
 
 /* .divAvvisoAgg span {
   display: inline-block;
@@ -461,3 +470,184 @@ footer {
   min-height: 60px; opzionale, per adattare all'immagine
   text-align: center;
 } */
+
+/* Maledico MsEdge che applica 8px di bordi che riducono la viewport non permettendo una risoluzione perfetta con le misure dei dispositivi utilizzati. */
+/* 0 - 359px: layout ultra compatto, nascondi aside, riduci padding e font */
+@media (max-width: 359px) {
+    body {}
+
+    header,
+    nav,
+    main,
+    aside,
+    footer {
+        padding: 4px;
+    }
+
+    .boxMainAside {
+        flex-direction: column;
+    }
+
+    aside {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* 360 - 411px: mostra aside solo sotto main, font leggermente più grandi */
+@media (min-width: 360px) and (max-width: 411px) {
+    body {}
+
+    .boxMainAside {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        order: 2;
+        margin-top: 8px;
+        display: flex;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+}
+
+/* 412 - 767px: layout mobile, aside sotto main, main a tutta larghezza */
+@media (min-width: 412px) and (max-width: 767px) {
+    body {}
+
+    .boxMainAside {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        order: 2;
+        margin-top: 10px;
+        display: flex;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* 768 - 1279px: layout tablet, aside a fianco, main più largo */
+@media (min-width: 768px) and (max-width: 1279px) {
+    body {}
+
+    .boxMainAside {
+        flex-direction: row;
+    }
+
+    aside {
+        width: 25%;
+        min-width: 180px;
+        max-width: 250px;
+        display: flex;
+    }
+
+    main {
+        width: 75%;
+    }
+
+    nav ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* 1280 - 1365px: desktop standard, layout come da default ma con spaziatura maggiore */
+@media (min-width: 1280px) and (max-width: 1365px) {
+    body {}
+
+    .boxMainAside {}
+
+    aside {
+        width: 18%;
+    }
+
+    main {
+        width: 64%;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* 1366 - 1535px: desktop largo */
+@media (min-width: 1366px) and (max-width: 1535px) {
+    
+}
+
+/* 1536 - 1919px: desktop full hd */
+@media (min-width: 1536px) and (max-width: 1919px) {
+    main {
+        width: calc(64% - 12px);
+    }
+    aside {
+        width: calc(18% - 4px);
+    }
+    main> :nth-child(n+3) {
+    width: calc(33.3% - 6.666666666666667px);
+}
+    
+}
+
+/* 1680/1920 - 2559px: desktop 2k (Il CSS base va già bene)
+@media (min-width: 1920px) and (max-width: 2559px) {
+
+} */
+
+/* 2560px e oltre: desktop 4k e ultrawide */
+@media (min-width: 2560px) {
+
+    main> :nth-child(1),
+    main> :nth-child(2),
+    main> :nth-child(3) {
+        width: calc(33.3% - 6.666666666666667px);
+    }
+
+    main> :nth-child(n+4) {
+        width: calc(25% - 7.5px);
+    }
+
+    main :nth-child(1) img,
+    main :nth-child(2) img,
+    main> :nth-child(3) img {
+        width: 420px;
+        height: 280px;
+    }
+
+    main :nth-child(n+4) img {
+        width: 240px;
+        height: 160px;
+    }
+}
