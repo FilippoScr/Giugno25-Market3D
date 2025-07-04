@@ -323,13 +323,13 @@ function aggiornaLista() {
     inputCartQnt.addEventListener("change", () => aggiornaQuantitaCarrello(articolo));
     // Crea il bottone e aggiungi l'event listener
     const btnElimina = document.createElement("button");
-    btnElimina.classList.add("btnEraserCartBoxArt");
+    btnElimina.classList.add("btnxmarkCartBoxArt");
     Object.assign(btnElimina.style, {
       position: "absolute",
       right: "0px",
       top: "0px"
     });
-    btnElimina.innerHTML = `Elimina <i class="fa-solid fa-eraser"></i>`;
+    btnElimina.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
     btnElimina.addEventListener("click", () => eliminaProdotto(articolo));
     liCart.querySelector(".cartBoxArtQnt").appendChild(btnElimina);
 

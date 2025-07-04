@@ -86,14 +86,16 @@ h1 span {
 
 p,
 .AsideSX_ul li,
-label {
+label,
+.inputEmail,
+.inputPassword,
+.inputSearch {
     font-size: 17px;
 }
 
 header span:not(h1 span),
 .spanAvviso,
-a,
-.inputSearch {
+a {
     font-size: 18px;
     font-weight: 600;
 }
@@ -128,12 +130,13 @@ button:enabled {
 input,
 button:not(.btnTheme, .btnSaltaDentro) {
     border: 0;
-    padding: 4px;
+    padding: 2px;
     background-color: var(--bg-color_btn-input);
 }
 
-input:not(.inputSearch),
-button:not(.btnTheme, .btnSaltaDentro, .buttonSearch) {
+input:not(.inputEmail, .inputPassword, .inputSearch),
+button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt),
+.fa-xmark {
     font-size: 15px;
 }
 
@@ -141,7 +144,7 @@ i {
     color: var(--icon-color);
 }
 
-i:not(main i, .asideCartDivBtn i, .fa-eraser) {
+i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
     font-size: 24px;
 }
 
@@ -188,7 +191,7 @@ body {
     padding: 20px;
 }
 
-body > div {
+body>div {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -223,8 +226,10 @@ header {
     flex-direction: column;
     background: none;
     border: none;
+    font-family: inherit;
 }
 
+/* Momentaneo, servirà modale. */
 .loginForm {
     display: none;
     position: absolute;
@@ -233,11 +238,12 @@ header {
     background: var(--color1);
     border: 1px solid var(--border-color0);
     z-index: 10;
-    width: 16vw;
+    width: calc(16vw - 2px);
+    min-width: 320px;/* 316.4px; */
     box-shadow: 0 0 8px var(--color3);
 }
 
-.loginForm > div {
+.loginForm> div {
     background: var(--color3_Op1);
     display: flex;
     flex-direction: column;
@@ -245,10 +251,22 @@ header {
     gap: 10px;
 }
 
+.loginForm input {
+    font-weight: 600;
+}
+
+.inputEmail {
+    width: 247px;
+}
+
+.inputPassword {
+    width: 207px;
+}
+
 .divBtnRegLog {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     align-self: stretch;
 }
 
@@ -266,6 +284,11 @@ nav li {
     background: var(--color1);
     border: 1px solid var(--color1);
     padding: 4px;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
 }
 
 nav i {
@@ -311,20 +334,11 @@ main> :nth-child(n+3) {
 
 /* IMG ARTICOLI */
 .articolo img {
-    display: block;
-    object-fit: cover;
     background-color: var(--text-s-color);
-}
-
-main :nth-child(1) img,
-main :nth-child(2) img {
-    width: 420px;
-    height: 280px;
-}
-
-main :nth-child(n+3) img {
-    width: 240px;
-    height: 160px;
+    width: 92%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 /* P DESCRIZIONE ARTICOLI */
@@ -365,6 +379,11 @@ aside ul {
 
 .inputSearch {
     flex-grow: 1;
+    font-weight: 600;
+}
+
+.fa-magnifying-glass {
+    font-size: 17px;
 }
 
 .boxPiuAcq {
@@ -421,6 +440,14 @@ aside ul {
     line-height: 13px;
 }
 
+.btnxmarkCartBoxArt {
+    line-height: 0;
+}
+
+.fa-xmark {
+    color: #cc0000;
+}
+
 .asideCartDivBtn {
     display: flex;
     margin-top: 16px;
@@ -448,7 +475,7 @@ footer {
     color: var(--text-p-color);
     border: 2px solid var(--border-color1);
     border-radius: 16px;
-    padding: 8px 18px;
+    padding: 6px 6px;
     box-shadow: 0 0 8px var(--color3);
     z-index: 10;
     white-space: nowrap;
@@ -473,157 +500,175 @@ footer {
 
 /* Maledico MsEdge che applica 8px di bordi che riducono la viewport non permettendo una risoluzione perfetta con le misure dei dispositivi utilizzati. */
 /* 0 - 359px: layout ultra compatto, nascondi aside, riduci padding e font */
-@media (max-width: 359px) {
-    body {}
-
-    header,
-    nav,
-    main,
-    aside,
-    footer {
-        padding: 4px;
-    }
-
-    .boxMainAside {
-        flex-direction: column;
-    }
-
-    aside {
-        display: none;
-    }
-
-    main {
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 1.2rem;
-    }
-}
+/* @media (max-width: 359px) {
+    
+} */
 
 /* 360 - 411px: mostra aside solo sotto main, font leggermente più grandi */
-@media (min-width: 360px) and (max-width: 411px) {
-    body {}
-
-    .boxMainAside {
-        flex-direction: column;
-    }
-
-    aside {
-        width: 100%;
-        order: 2;
-        margin-top: 8px;
-        display: flex;
-    }
-
-    main {
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 1.3rem;
-    }
-}
+/* @media (min-width: 360px) and (max-width: 411px) {
+    
+} */
 
 /* 412 - 767px: layout mobile, aside sotto main, main a tutta larghezza */
-@media (min-width: 412px) and (max-width: 767px) {
-    body {}
-
-    .boxMainAside {
-        flex-direction: column;
-    }
-
-    aside {
-        width: 100%;
-        order: 2;
-        margin-top: 10px;
-        display: flex;
-    }
-
-    main {
-        width: 100%;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-}
-
-/* 768 - 1279px: layout tablet, aside a fianco, main più largo */
-@media (min-width: 768px) and (max-width: 1279px) {
-    body {}
-
-    .boxMainAside {
-        flex-direction: row;
-    }
-
-    aside {
-        width: 25%;
-        min-width: 180px;
-        max-width: 250px;
-        display: flex;
-    }
-
-    main {
-        width: 75%;
-    }
-
-    nav ul {
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-}
-
-/* 1280 - 1365px: desktop standard, layout come da default ma con spaziatura maggiore */
-@media (min-width: 1280px) and (max-width: 1365px) {
-    body {}
-
-    .boxMainAside {}
-
-    aside {
-        width: 18%;
-    }
-
-    main {
-        width: 64%;
-    }
-
-    h1 {
-        font-size: 2.2rem;
-    }
-}
-
-/* 1366 - 1535px: desktop largo */
-@media (min-width: 1366px) and (max-width: 1535px) {
+/* @media (min-width: 412px) and (max-width: 767px) {
     
+} */
+
+/* 768 - 1023px: layout tablet, aside a fianco, main più largo */
+@media (min-width: 768px) and (max-width: 1023px) {
+    h2 {
+        font-size: 1.2em;
+    }
+    h3 {
+        font-size: 1em;
+    }
+
+    p,
+.AsideSX_ul li,
+label,
+.inputEmail,
+.inputPassword,
+.inputSearch {
+    font-size: 15px; /* 17 */
+}
+
+header span:not(h1 span),
+.spanAvviso,
+a {
+    font-size: 17.4px; /* 18 */
+    font-weight: 600;
+}
+
+input:not(.inputEmail, .inputPassword, .inputSearch),
+button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt),
+.fa-xmark {
+    font-size: 13.6px; /* 15 */
+}
+
+i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
+    font-size: 20px; /* 24 */
+}
+
+.loginForm input {
+    font-weight: 400; /* 600 */
+}
+
+.inputSearch {
+    font-weight: 400; /* 600 */
+}
+
+.fa-magnifying-glass {
+    font-size: 15px; /* 17 */
+}
+
+/* prendere pure i line-h */
+
+    .loginForm {
+        width: calc(23vw - 2px);
+        min-width: 320px;
+    }
+
+    main {
+        width: calc(54% - 12px);
+    }
+
+    aside {
+        width: calc(23% - 4px);
+    }
+
+    .asideCartDivBtn {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main> :nth-child(1) {
+        width: 100%;
+    }
+
+    main> :nth-child(n+2) {
+        width: calc(50% - 5px);
+    }
+}
+
+/* 1024 - 1279px: desktop standard, layout come da default ma con spaziatura maggiore */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .loginForm {
+        width: calc(23vw - 2px);
+        min-width: 320px;
+    }
+
+    main {
+        width: calc(54% - 12px);
+    }
+
+    aside {
+        width: calc(23% - 4px);
+    }
+
+    .asideCartDivBtn {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main> :nth-child(1) {
+        width: 100%;
+    }
+
+    main> :nth-child(n+2) {
+        width: calc(50% - 5px);
+    }
+}
+
+/* 1280/1366 - 1535px: desktop largo */
+@media (min-width: 1280px) and (max-width: 1535px) {
+    .loginForm {
+        width: calc(21vw - 2px);
+        min-width: 320px;
+    }
+
+    main {
+        width: calc(58% - 12px);
+    }
+
+    aside {
+        width: calc(21% - 4px);
+    }
+
+    main> :nth-child(n+3) {
+        width: calc(33.3% - 6.666666666666667px);
+    }
 }
 
 /* 1536 - 1919px: desktop full hd */
 @media (min-width: 1536px) and (max-width: 1919px) {
+    .loginForm {
+        width: calc(18vw - 2px);
+        min-width: 320px;
+    }
+
     main {
         width: calc(64% - 12px);
     }
+
     aside {
         width: calc(18% - 4px);
     }
+
     main> :nth-child(n+3) {
-    width: calc(33.3% - 6.666666666666667px);
-}
-    
+        width: calc(33.3% - 6.666666666666667px);
+    }
 }
 
 /* 1680/1920 - 2559px: desktop 2k (Il CSS base va già bene)
 @media (min-width: 1920px) and (max-width: 2559px) {
+} */
 
+/* 2240 - 2559px (extra)
+@media (min-width: 2240px) and (max-width: 2559px) {
 } */
 
 /* 2560px e oltre: desktop 4k e ultrawide */
@@ -634,20 +679,8 @@ footer {
     main> :nth-child(3) {
         width: calc(33.3% - 6.666666666666667px);
     }
-
-    main> :nth-child(n+4) {
-        width: calc(25% - 7.5px);
-    }
-
-    main :nth-child(1) img,
-    main :nth-child(2) img,
-    main> :nth-child(3) img {
-        width: 420px;
-        height: 280px;
-    }
-
-    main :nth-child(n+4) img {
-        width: 240px;
-        height: 160px;
-    }
 }
+
+/* 3200 - 3839px (extra)
+@media (min-width: 3200px) and (max-width: 3839px) {
+} */
