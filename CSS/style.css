@@ -64,6 +64,10 @@ h6 {
     line-height: 1;
 }
 
+h3 {
+    font-size: 19px;
+}
+
 h1,
 h2,
 h3,
@@ -135,9 +139,8 @@ button:not(.btnTheme, .btnSaltaDentro) {
 }
 
 input:not(.inputEmail, .inputPassword, .inputSearch),
-button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt),
-.fa-xmark {
-    font-size: 15px;
+button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt) {
+    font-size: 14px;
 }
 
 i {
@@ -177,7 +180,6 @@ button:not(.btnTheme, .btnSaltaDentro) {
 
 /* .asideCart ul:not(:empty), */
 .searchBox,
-.boxPiuAcq h3,
 .asideCart h2 {
     margin-bottom: 10px;
 }
@@ -239,11 +241,12 @@ header {
     border: 1px solid var(--border-color0);
     z-index: 10;
     width: calc(16vw - 2px);
-    min-width: 320px;/* 316.4px; */
+    min-width: 320px;
+    /* 316.4px; */
     box-shadow: 0 0 8px var(--color3);
 }
 
-.loginForm> div {
+.loginForm>div {
     background: var(--color3_Op1);
     display: flex;
     flex-direction: column;
@@ -303,11 +306,11 @@ nav i {
 
 /* MAIN */
 main {
-    width: calc(68% - 12px);
+    width: calc(74% - 12px);
     display: flex;
     flex-wrap: wrap;
     background-color: var(--color1);
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     gap: 10px;
 }
 
@@ -320,7 +323,7 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 main> :nth-child(1),
@@ -329,7 +332,8 @@ main> :nth-child(2) {
 }
 
 main> :nth-child(n+3) {
-    width: calc(25% - 7.5px);
+    /* width: calc(25% - 7.5px); */
+    flex: 1 1 21%;
 }
 
 /* IMG ARTICOLI */
@@ -352,7 +356,7 @@ main> :nth-child(n+3) {
 
 /* ASIDE */
 aside {
-    width: calc(16% - 4px);
+    width: calc(13% - 4px);
     background-color: var(--color2);
     display: flex;
     flex-direction: column;
@@ -360,10 +364,12 @@ aside {
     align-items: center;
 }
 
-aside ul {
+aside ul,
+.boxPiuAcq {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-self: stretch;
 }
 
 /* ASIDE SX */
@@ -389,6 +395,10 @@ aside ul {
 .boxPiuAcq {
     background: var(--color3_Op1);
     border: 1px solid var(--border-color0);
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-items: center;
 }
 
 .AsideSX_ul {
@@ -404,16 +414,15 @@ aside ul {
     display: inline-block;
 }
 
-.asideCart ul {
-    align-self: stretch;
-}
-
+/* p fratello adiacente a ul non vuoto */
 .asideCart ul:not(:empty)+p {
     margin-top: 10px;
+    text-align: center;
 }
 
 .cartBoxArt {
     display: flex;
+    justify-content: center;
     gap: 10px;
     background: var(--color3_Op1);
     border: 1px solid var(--border-color0);
@@ -423,7 +432,6 @@ aside ul {
     width: 50px;
     height: 50px;
     object-fit: cover;
-    border-radius: 6px;
     background-color: var(--color1);
 }
 
@@ -432,12 +440,15 @@ aside ul {
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    flex-grow: 1;
 }
 
 /* Allinea il nome dell'articolo al bordo alto del contenitore: */
 .cartBoxArtQnt h3 {
-    line-height: 13px;
+    line-height: 12px;
+}
+
+.cartBoxArtQnt label {
+    align-self: center
 }
 
 .btnxmarkCartBoxArt {
@@ -446,6 +457,7 @@ aside ul {
 
 .fa-xmark {
     color: #cc0000;
+    font-size: 15px;
 }
 
 .asideCartDivBtn {
@@ -473,9 +485,9 @@ footer {
     transform: translate(-50%, -50%);
     background: var(--color2);
     color: var(--text-p-color);
+    padding: 4px 6px;
     border: 2px solid var(--border-color1);
     border-radius: 16px;
-    padding: 6px 6px;
     box-shadow: 0 0 8px var(--color3);
     z-index: 10;
     white-space: nowrap;
@@ -519,49 +531,79 @@ footer {
     h2 {
         font-size: 1.2em;
     }
+
     h3 {
         font-size: 1em;
     }
 
     p,
-.AsideSX_ul li,
-label,
-.inputEmail,
-.inputPassword,
-.inputSearch {
-    font-size: 15px; /* 17 */
-}
+    .spanAvviso,
+    .AsideSX_ul li,
+    label,
+    .inputEmail,
+    .inputPassword,
+    .inputSearch {
+        font-size: 15px;
+        /* 17 */
+    }
 
-header span:not(h1 span),
-.spanAvviso,
-a {
-    font-size: 17.4px; /* 18 */
-    font-weight: 600;
-}
+    header span:not(h1 span),
+    a {
+        font-size: 17.4px;
+        /* 18 */
+        font-weight: 600;
+    }
 
-input:not(.inputEmail, .inputPassword, .inputSearch),
-button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt),
-.fa-xmark {
-    font-size: 13.6px; /* 15 */
-}
+    main> :nth-child(n+2) .spanAvviso {
+        padding: 2px;
+    }
 
-i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
-    font-size: 20px; /* 24 */
-}
+    .cartBoxArt {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.loginForm input {
-    font-weight: 400; /* 600 */
-}
+    .cartImg {
+        width: 68%;
+        display: block;
+    }
 
-.inputSearch {
-    font-weight: 400; /* 600 */
-}
+    .cartBoxArtQnt {
+        gap: 10px;
+    }
 
-.fa-magnifying-glass {
-    font-size: 15px; /* 17 */
-}
+    input:not(.inputEmail, .inputPassword, .inputSearch),
+    button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt) {
+        font-size: 12.4px;
+        /* 14 */
+    }
 
-/* prendere pure i line-h */
+    .fa-xmark {
+        font-size: 12px;
+        /* 15 */
+    }
+
+    i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
+        font-size: 20px;
+        /* 24 */
+    }
+
+    .loginForm input,
+    .inputSearch,
+    .spanAvviso {
+        font-weight: 400;
+        /* 600 */
+    }
+
+    .fa-magnifying-glass {
+        font-size: 15px;
+        /* 17 */
+    }
+
+    /* prendere pure i line-height */
+    .cartBoxArtQnt h3 {
+        line-height: 11px;
+    }
 
     .loginForm {
         width: calc(23vw - 2px);
@@ -586,7 +628,8 @@ i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
     }
 
     main> :nth-child(n+2) {
-        width: calc(50% - 5px);
+        /* width: calc(50% - 5px); */
+        flex: 1 1 34%;
     }
 }
 
@@ -596,6 +639,10 @@ i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
         font-size: 1.3em;
     }
 
+    main> :nth-child(n+2) .spanAvviso {
+        padding: 2px;
+    }
+
     .loginForm {
         width: calc(23vw - 2px);
         min-width: 320px;
@@ -619,47 +666,58 @@ i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
     }
 
     main> :nth-child(n+2) {
-        width: calc(50% - 5px);
+        /* width: calc(50% - 5px); */
+        flex: 1 1 34%;
     }
 }
 
 /* 1280/1366 - 1535px: desktop largo */
 @media (min-width: 1280px) and (max-width: 1535px) {
+    main> :nth-child(n+3) .spanAvviso {
+        padding: 2px 4px;
+    }
+
     .loginForm {
-        width: calc(21vw - 2px);
+        width: calc(20vw - 2px);
         min-width: 320px;
     }
 
     main {
-        width: calc(58% - 12px);
+        width: calc(60% - 12px);
     }
 
     aside {
-        width: calc(21% - 4px);
+        width: calc(20% - 4px);
     }
 
     main> :nth-child(n+3) {
-        width: calc(33.3% - 6.666666666666667px);
+        /* width: calc(33.3% - 6.666666666666667px); */
+        flex: 1 1 26%;
     }
 }
 
 /* 1536 - 1919px: desktop full hd */
 @media (min-width: 1536px) and (max-width: 1919px) {
+    main> :nth-child(n+3) .spanAvviso {
+        padding: 4px 4px;
+    }
+
     .loginForm {
-        width: calc(18vw - 2px);
+        width: calc(16vw - 2px);
         min-width: 320px;
     }
 
     main {
-        width: calc(64% - 12px);
+        width: calc(68% - 12px);
     }
 
     aside {
-        width: calc(18% - 4px);
+        width: calc(16% - 4px);
     }
 
     main> :nth-child(n+3) {
-        width: calc(33.3% - 6.666666666666667px);
+        /* width: calc(33.3% - 6.666666666666667px); */
+        flex: 1 1 26%;
     }
 }
 
@@ -673,11 +731,19 @@ i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
 
 /* 2560px e oltre: desktop 4k e ultrawide */
 @media (min-width: 2560px) {
+    main {
+        width: calc(80% - 12px);
+    }
+
+    aside {
+        width: calc(10% - 4px);
+    }
 
     main> :nth-child(1),
     main> :nth-child(2),
     main> :nth-child(3) {
-        width: calc(33.3% - 6.666666666666667px);
+        /* width: calc(33.3% - 6.666666666666667px); */
+        flex: 1 1 26%;
     }
 }
 
