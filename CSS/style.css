@@ -60,7 +60,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a {
     line-height: 1;
 }
 
@@ -240,7 +241,7 @@ header {
     background: var(--color1);
     border: 1px solid var(--border-color0);
     z-index: 10;
-    width: calc(16vw - 2px);
+    width: calc(16vw - 3px);
     min-width: 320px;
     /* 316.4px; */
     box-shadow: 0 0 8px var(--color3);
@@ -513,18 +514,168 @@ footer {
 /* Maledico MsEdge che applica 8px di bordi che riducono la viewport non permettendo una risoluzione perfetta con le misure dei dispositivi utilizzati. */
 /* 0 - 359px: layout ultra compatto, nascondi aside, riduci padding e font */
 /* @media (max-width: 359px) {
-    
 } */
 
 /* 360 - 411px: mostra aside solo sotto main, font leggermente più grandi */
 /* @media (min-width: 360px) and (max-width: 411px) {
-    
 } */
 
-/* 412 - 767px: layout mobile, aside sotto main, main a tutta larghezza */
-/* @media (min-width: 412px) and (max-width: 767px) {
-    
-} */
+/* 0/412 - 767px: layout mobile, aside sotto main, main a tutta larghezza */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 1.6em;
+        /* 2em */
+    }
+
+    h2 {
+        font-size: 1em;
+        /* 1.2em */
+    }
+
+    h3 {
+        font-size: 14px;
+        /* 1em */
+    }
+
+    p,
+    .spanAvviso,
+    .AsideSX_ul li,
+    label,
+    .inputEmail,
+    .inputPassword,
+    .inputSearch {
+        font-size: 14px;
+        /* 15 17 */
+    }
+
+    header span:not(h1 span),
+    a {
+        font-size: 15px;
+        /* 17.4 18 */
+        font-weight: 600;
+    }
+
+    /* NAV */
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    nav li {
+        border: 1px solid var(--color1);
+        padding: 2px;
+        /* 4 */
+        height: 35px;
+    }
+
+    nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        line-height: 14px;
+        margin: 16px 0 0 0;
+    }
+
+    nav i {
+        position: absolute;
+        left: 50%;
+        bottom: 14px;
+        transform: translatex(-50%);
+    }
+
+    .boxMainAside {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    main> :nth-child(n+2) .spanAvviso {
+        padding: 2px;
+    }
+
+    .cartBoxArt {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cartImg {
+        width: 68%;
+        display: block;
+    }
+
+    .cartBoxArtQnt {
+        gap: 10px;
+    }
+
+    input:not(.inputEmail, .inputPassword, .inputSearch),
+    button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt) {
+        font-size: 12px;
+        /* 12.4 14 */
+    }
+
+    .fa-xmark {
+        font-size: 12px;
+        /* 15 */
+    }
+
+    i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
+        font-size: 16px;
+        /* 20 24 */
+    }
+
+    .loginForm input,
+    .inputSearch,
+    .spanAvviso {
+        font-weight: 400;
+        /* 600 */
+    }
+
+    .fa-magnifying-glass {
+        font-size: 14px;
+        /* 15 17 */
+    }
+
+    /* prendere pure i line-height */
+    .cartBoxArtQnt h3 {
+        line-height: 11px;
+        /* 11? */
+    }
+
+    .loginForm {
+        width: calc(40vw - 3px);
+        min-width: 320px;
+    }
+
+    .asideSX {
+        width: 100%;
+    }
+
+    main {
+        width: calc(60% - 6px);
+    }
+
+    .asideCart {
+        width: calc(40% - 4px);
+        max-height: 100%;
+    }
+
+    .asideCartDivBtn {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main .articolo {
+        width: 100%;
+        flex: auto;
+    }
+}
+
+/* 413 - 767px: extra per nav ul */
+@media (min-width: 413px) and (max-width: 767px) {
+    nav ul {
+        justify-content: space-evenly;
+    }
+}
 
 /* 768 - 1023px: layout tablet, aside a fianco, main più largo */
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -606,7 +757,7 @@ footer {
     }
 
     .loginForm {
-        width: calc(23vw - 2px);
+        width: calc(23vw - 3px);
         min-width: 320px;
     }
 
@@ -644,7 +795,7 @@ footer {
     }
 
     .loginForm {
-        width: calc(23vw - 2px);
+        width: calc(23vw - 3px);
         min-width: 320px;
     }
 
@@ -678,7 +829,7 @@ footer {
     }
 
     .loginForm {
-        width: calc(20vw - 2px);
+        width: calc(20vw - 3px);
         min-width: 320px;
     }
 
@@ -703,7 +854,7 @@ footer {
     }
 
     .loginForm {
-        width: calc(16vw - 2px);
+        width: calc(16vw - 3px);
         min-width: 320px;
     }
 
