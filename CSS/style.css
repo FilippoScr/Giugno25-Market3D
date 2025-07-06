@@ -113,7 +113,7 @@ a {
     text-decoration: none;
 }
 
-input:not(header input) {
+input:not(header input, .inputSearch) {
     width: 50px;
 }
 
@@ -181,7 +181,7 @@ button:not(.btnTheme, .btnSaltaDentro) {
 
 /* .asideCart ul:not(:empty), */
 .searchBox,
-.asideCart h2 {
+.asideCart>div:first-child {
     margin-bottom: 10px;
 }
 
@@ -385,7 +385,8 @@ aside ul,
 }
 
 .inputSearch {
-    flex-grow: 1;
+    flex: 1 1;
+    min-width: 0;
     font-weight: 600;
 }
 
@@ -423,15 +424,15 @@ aside ul,
 
 .cartBoxArt {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 10px;
     background: var(--color3_Op1);
     border: 1px solid var(--border-color0);
 }
 
 .cartImg {
-    width: 50px;
-    height: 50px;
+    width: 34%;
+    height: auto;
     object-fit: cover;
     background-color: var(--color1);
 }
@@ -465,6 +466,8 @@ aside ul,
     display: flex;
     margin-top: 16px;
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* FOOTER */
@@ -528,7 +531,7 @@ footer {
     }
 
     h2 {
-        font-size: 1em;
+        font-size: 15px;
         /* 1.2em */
     }
 
@@ -544,83 +547,14 @@ footer {
     .inputEmail,
     .inputPassword,
     .inputSearch {
-        font-size: 14px;
+        font-size: 13px;
         /* 15 17 */
-    }
-
-    header span:not(h1 span),
-    a {
-        font-size: 15px;
-        /* 17.4 18 */
-        font-weight: 600;
-    }
-
-    /* NAV */
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    nav li {
-        border: 1px solid var(--color1);
-        padding: 2px;
-        /* 4 */
-        height: 35px;
-    }
-
-    nav a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        line-height: 14px;
-        margin: 16px 0 0 0;
-    }
-
-    nav i {
-        position: absolute;
-        left: 50%;
-        bottom: 14px;
-        transform: translatex(-50%);
-    }
-
-    .boxMainAside {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    main> :nth-child(n+2) .spanAvviso {
-        padding: 2px;
-    }
-
-    .cartBoxArt {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cartImg {
-        width: 68%;
-        display: block;
-    }
-
-    .cartBoxArtQnt {
-        gap: 10px;
     }
 
     input:not(.inputEmail, .inputPassword, .inputSearch),
     button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt) {
         font-size: 12px;
         /* 12.4 14 */
-    }
-
-    .fa-xmark {
-        font-size: 12px;
-        /* 15 */
-    }
-
-    i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
-        font-size: 16px;
-        /* 20 24 */
     }
 
     .loginForm input,
@@ -630,15 +564,30 @@ footer {
         /* 600 */
     }
 
+    input:not(header input, .inputSearch) {
+        width: 40px;
+    }
+
+    .spanAvviso {
+        padding: 2px;
+    }
+
+    i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
+        font-size: 15px;
+        /* 20 24 */
+    }
+
     .fa-magnifying-glass {
-        font-size: 14px;
+        font-size: 13px;
         /* 15 17 */
     }
 
-    /* prendere pure i line-height */
-    .cartBoxArtQnt h3 {
-        line-height: 11px;
-        /* 11? */
+    /* HEADER */
+    header span:not(h1 span),
+    a {
+        font-size: 13px;
+        /* 17.4 18 */
+        font-weight: 600;
     }
 
     .loginForm {
@@ -646,36 +595,134 @@ footer {
         min-width: 320px;
     }
 
+    /* NAV */
+    nav ul {
+        gap: 10px;
+    }
+
+    nav span {
+        line-height: 11px;
+    }
+
+    /* MAIN ASIDE */
+    .boxMainAside {
+        flex-wrap: wrap;
+    }
+
+    aside {
+        max-height: 388px;
+        overflow-y: auto;
+        scrollbar-gutter: stable overlay;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    aside::-webkit-scrollbar {
+        display: none;
+    }
+
+    aside:hover {
+        scrollbar-width: thin;
+        /* Firefox: mostra scrollbar sottile */
+    }
+
+    aside:hover::-webkit-scrollbar {
+        width: 8px;
+        height: auto
+    }
+
+    aside:hover::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+
     .asideSX {
-        width: 100%;
+        width: calc(55% - 10px);
+        order: 0;
     }
 
     main {
-        width: calc(60% - 6px);
+        width: 100%;
+        order: 2;
+    }
+
+    /* se togli main riduci la specificità e non avrà effetto */
+    main .articolo {
+        /* width: calc(50% - 5px); */
+        flex: 1 1 34%;
     }
 
     .asideCart {
-        width: calc(40% - 4px);
-        max-height: 100%;
+        width: 45%;
+        order: 1;
     }
 
-    .asideCartDivBtn {
+    .cartBoxArtQnt {
+        gap: 10px;
+    }
+
+    .cartBoxArtQnt h3 {
+        line-height: 11px;
+        /* 11 è corretto */
+    }
+
+    .fa-xmark {
+        font-size: 12px;
+        /* 15 */
+    }
+}
+
+
+
+/* max 479px: extra perfezionamento cart e main */
+@media (max-width: 479px) {
+
+    /* NAV */
+    nav ul {
         flex-wrap: wrap;
-        justify-content: center;
     }
 
+    nav li {
+        padding: 2px;
+        /* 4 */
+    }
+
+    nav a {
+        flex-direction: column;
+    }
+
+    nav i {
+        margin-right: 0;
+    }
+
+    /* MAIN ASIDE */
+    .asideSX {
+        width: calc(58% - 10px);
+    }
+
+    /* se togli main riduci la specificità e non avrà effetto */
     main .articolo {
         width: 100%;
         flex: auto;
     }
-}
 
-/* 413 - 767px: extra per nav ul */
-@media (min-width: 413px) and (max-width: 767px) {
-    nav ul {
-        justify-content: space-evenly;
+    .asideCart {
+        width: 42%;
+    }
+
+    .cartBoxArt {
+        flex-direction: column;
+        align-items: center;
+        justify-content: unset;
+    }
+
+    .cartImg {
+        width: 68%;
     }
 }
+
+
+
 
 /* 768 - 1023px: layout tablet, aside a fianco, main più largo */
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -712,11 +759,11 @@ footer {
     .cartBoxArt {
         flex-direction: column;
         align-items: center;
+        justify-content: unset;
     }
 
     .cartImg {
         width: 68%;
-        display: block;
     }
 
     .cartBoxArtQnt {
@@ -769,11 +816,6 @@ footer {
         width: calc(23% - 4px);
     }
 
-    .asideCartDivBtn {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
     main> :nth-child(1) {
         width: 100%;
     }
@@ -800,16 +842,11 @@ footer {
     }
 
     main {
-        width: calc(54% - 12px);
+        width: calc(50% - 12px);
     }
 
     aside {
-        width: calc(23% - 4px);
-    }
-
-    .asideCartDivBtn {
-        flex-wrap: wrap;
-        justify-content: center;
+        width: calc(25% - 4px);
     }
 
     main> :nth-child(1) {
@@ -876,8 +913,16 @@ footer {
 @media (min-width: 1920px) and (max-width: 2559px) {
 } */
 
-/* 2240 - 2559px (extra)
-@media (min-width: 2240px) and (max-width: 2559px) {
+/* 2048 - 2559px (extra)
+@media (min-width: 2048px) and (max-width: 2559px) {
+.cartBoxArt {
+        justify-content: space-evenly;
+    }
+
+    .cartImg {
+        width: 34%;
+        height: auto;
+    }
 } */
 
 /* 2560px e oltre: desktop 4k e ultrawide */
