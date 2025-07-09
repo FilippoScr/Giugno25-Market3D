@@ -1,5 +1,4 @@
 ## 🖥️ [Market3D](https://filipposcr.github.io/Giugno25-Market3D/) 🧊
-<br>
 
 ### 👨‍💻📽️📊 Presentazione:
 Ciao a tutti,  
@@ -15,7 +14,6 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 #### Siamo partiti pensando a come sarebbe dovuta essere la nostra one-page site, definendo le basi in HTML e CSS:
 - 📍 Dove posizionare cosa.
 - 🏷️ Come chiamarla e con quali contenuti riempirla.
-<br>
 
 #### Successivamente siamo passati a JavaScript:
 - 📦 Creazione di un array di oggetti.
