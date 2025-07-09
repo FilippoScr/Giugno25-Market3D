@@ -20,7 +20,7 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 🏷️ Come chiamarla e con quali contenuti riempirla.
 <br>
 
-#### Successivamente siamo passati a JavaScript:
+#### Successivamente siamo passati a sviluppare JavaScript:
 📦 Creazione di un array di oggetti.  
 🧩 Popolamento dinamico del `<main>`.  
 🕹️ Inserimento di input e pulsanti.  
@@ -33,7 +33,7 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 <br>
 
 ### 💬 Pareri personali:
-Sono soddisfatto del lavoro di entrambi 🏆. Per quanto mi riguarda, avrei voluto perfezionare alcuni colori (soprattutto del tema light), avrei voluto cambiare l'icona della "❌" che compare nella barra di ricerca e le "🔼🔽" negli input quantità, ma sarebbero state personalizzazioni che andavano oltre gli obiettivi iniziali: esercitarsi;  sarebbe servito ulteriore tempo 🕐, anche se tutto quello che è stato fatto finora, è stato realizzato con passione ❤️, una passione che mi spingeva costantemente a voler implementare e rifinire ancora di più il risultato 🗿.  
+Sono soddisfatto del lavoro di entrambi 🏆. Per quanto mi riguarda, avrei voluto perfezionare alcuni colori 🎨 (soprattutto del tema light), avrei voluto cambiare l'icona della "❌" che compare nella barra di ricerca e le "🔼🔽" negli input quantità, ma sarebbero state personalizzazioni che andavano oltre gli obiettivi iniziali: esercitarsi;  sarebbe servito ulteriore tempo 🕐, anche se tutto quello che è stato fatto finora, è stato realizzato con passione ❤️, una passione che mi spingeva costantemente a voler implementare e rifinire ancora di più il risultato 🗿.  
 Devo ammettere che arrivare fin qui ha già richiesto più tempo 🕕 del previsto, trasformando l’esercizio in un "progetto" 🏰 che istintivamente vorrei completare ✔️;  aggiungerei ulteriori pagine 📄 e l'inizializzazione di un vero processo per l'acquisto 💳 tramite Web Storage 💾 e Fetch API ☎️, renderei realmente funzionante la sezione "I più acquistati:" con un basico utilizzo di database 🗄️ (che purtroppo ancora non conosco), farei tanto altro che, come sempre, emerge 💡 soltanto mentre si sta lavorando a un qualsiasi progetto 🗼, com'è naturale che sia...
 <br>
 <br>
