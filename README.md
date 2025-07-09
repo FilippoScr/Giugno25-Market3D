@@ -1,5 +1,4 @@
 <div align="center">
-
 ## 🖥️ [Market3D](https://filipposcr.github.io/Giugno25-Market3D/) 🧊
 
 ### 👨‍💻📽️📊 Presentazione:
@@ -14,18 +13,18 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 
 ### 🛠 Struttura e funzionalità:
 #### Siamo partiti pensando a come sarebbe dovuta essere la nostra one-page site, definendo le basi in HTML e CSS:
-- 📍 Dove posizionare cosa.
-- 🏷️ Come chiamarla e con quali contenuti riempirla.
+📍 Dove posizionare cosa.
+🏷️ Come chiamarla e con quali contenuti riempirla.
 
 #### Successivamente siamo passati a JavaScript:
-- 📦 Creazione di un array di oggetti.
-- 🧩 Popolamento dinamico del `<main>`.
-- 🕹️ Inserimento di input e pulsanti.
-- ➕➖🪙 Gestione quantità e prezzi.
-- 🛒 Interazioni legate al carrello (calcolo del totale, rimozione articoli e svuotamento carrello).
-- 🔎 Aggiunta della barra di ricerca.
-- 🌗 Implementazione dei temi light e dark.
-- 🔐 Funzione di login e logout.
+📦 Creazione di un array di oggetti.
+🧩 Popolamento dinamico del `<main>`.
+🕹️ Inserimento di input e pulsanti.
+➕➖🪙 Gestione quantità e prezzi.
+🛒 Interazioni legate al carrello (calcolo del totale, rimozione articoli e svuotamento carrello).
+🔎 Aggiunta della barra di ricerca.
+🌗 Implementazione dei temi light e dark.
+🔐 Funzione di login e logout.
 <br>
 
 ### 💬 Pareri personali:
