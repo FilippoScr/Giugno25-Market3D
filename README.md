@@ -19,7 +19,7 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 📍 Dove posizionare cosa.  
 🏷️ Come chiamarla e con quali contenuti riempirla.
 
-<h4 color="yellow">Successivamente siamo passati a JavaScript:</h4>
+<h4 style="color: blue;">Successivamente siamo passati a JavaScript:</h4>
 📦 Creazione di un array di oggetti.  
 🧩 Popolamento dinamico del `<main>`.  
 🕹️ Inserimento di input e pulsanti.  
