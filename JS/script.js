@@ -187,21 +187,44 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 
 const carrello = [];
 
-function avviso(divAvviso) {
-  // Rimuovi eventuale span già presente
-  const oldSpan = divAvviso.querySelector('span');
-  if (oldSpan) divAvviso.removeChild(oldSpan);
+/* function avviso(boxImgDivAvviso) {
+  // Rimuovi eventuale div di avviso già presente
+  const oldDivAvviso = boxImgDivAvviso.querySelector('div');
+  if (oldDivAvviso) boxImgDivAvviso.removeChild(oldDivAvviso);
 
-  // Crea e aggiungi nuovo span
-  const spanAvviso = document.createElement("span");
-  spanAvviso.classList.add("spanAvviso");
-  spanAvviso.textContent = "Aggiunto al carrello!";
-  divAvviso.appendChild(spanAvviso);
+  // Crea e aggiungi nuovo div
+  const divAvviso = document.createElement("div");
+  divAvviso.classList.add("divAvviso");
+  divAvviso.textContent = "Aggiunto al carrello!";
+  boxImgDivAvviso.appendChild(divAvviso);
 
-  // Rimuovi lo span dopo 1.5 secondi
+  // Rimuovi divAvviso dopo 1.5 secondi
   setTimeout(() => {
-    divAvviso.removeChild(spanAvviso);
-  }, 15000);
+    boxImgDivAvviso.removeChild(divAvviso);
+  }, 1500);
+} */
+
+function avviso(boxImgDivAvviso) {
+  // Rimuovi eventuale div di avviso già presente
+  const oldDivAvviso = boxImgDivAvviso.querySelector('div');
+  if (oldDivAvviso) boxImgDivAvviso.removeChild(oldDivAvviso);
+
+  const divAvviso = document.createElement("div");
+  divAvviso.classList.add("divAvviso");
+  const SVG =
+    `<svg class="fileSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.916677 26.458333" aria-hidden="true">
+      <path class="pathPolistellare"
+        d="m 52.449474,13.229199 -3.910053,2.686682 0.951335,4.542104 -5.143636,0.07704 -1.399446,3.451444 -4.541034,-1.551712 -3.216165,3.248515 -4.742639,-2.448079 -3.989459,2.896193 -3.989475,-2.896192 -4.742618,2.448086 -3.216186,-3.2485 L 9.969101,23.986497 8.5696092,20.535056 3.4261371,20.457996 4.3773456,15.915893 0.46720395,13.22921 4.3773456,10.54252 3.4261371,6.0004291 8.5696092,5.9233116 9.969101,2.471864 14.510098,4.023585 17.726284,0.77506018 22.468902,3.2231372 26.458377,0.32694955 30.447836,3.2231372 35.190475,0.77506018 38.40664,4.023585 42.947674,2.471864 44.34712,5.9233116 49.490756,6.0004246 48.539421,10.54252 Z"
+      />
+    </svg>`
+    ;
+  divAvviso.innerHTML = SVG;
+  boxImgDivAvviso.appendChild(divAvviso);
+
+  // Rimuovi divAvviso dopo 1.5 secondi
+  setTimeout(() => {
+    boxImgDivAvviso.removeChild(divAvviso);
+  }, 1500);
 }
 
 // Funzione per aggiungere un articolo al carrello: modifica28-29-17-articolo.
@@ -237,7 +260,7 @@ function creaArticoli(param = artArray) {
 
     div.innerHTML = `
             <h2>${articolo.nome}</h2>
-            <div class="divAvvisoAgg"><img src="${articolo.img.medium}" alt="${articolo.altMessage}"></div>
+            <div class="box_img-divAvviso"><img src="${articolo.img.medium}" alt="${articolo.altMessage}"></div>
             <p>${articolo.descrizione}</p>
             <p>Prezzo unitario: €${articolo.prezzo.toFixed(2)}</p>
             <label>Quantità:
@@ -260,8 +283,8 @@ function creaArticoli(param = artArray) {
     btnAggiungi.innerHTML = `Aggiungi al carrello <i class="fa-solid fa-cart-plus"></i>`;
     btnAggiungi.addEventListener("click", () => {
       aggiungiAlCarrello(articolo);
-      const divAvviso = div.querySelector('.divAvvisoAgg');
-      avviso(divAvviso);
+      const boxImgDivAvviso = div.querySelector('.box_img-divAvviso');
+      avviso(boxImgDivAvviso);
     })
 
     div.appendChild(btnAggiungi);
@@ -330,7 +353,11 @@ function aggiornaLista() {
       top: "0px"
     });
     btnElimina.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
-    btnElimina.addEventListener("click", () => eliminaProdotto(articolo));
+    btnElimina.addEventListener("click", function () {
+      eliminaProdotto(articolo);
+      const divAvvisi = document.querySelectorAll('.articolo .divAvviso');
+      divAvvisi.forEach(elAvviso => elAvviso.remove());
+    });
     liCart.querySelector(".cartBoxArtQnt").appendChild(btnElimina);
 
     ulCart.appendChild(liCart);
@@ -366,6 +393,8 @@ function eliminaProdotto(articolo) {
 document.getElementById('btnTrashCart').addEventListener('click', function () {
   carrello.length = 0; // Svuota l'array carrello
   aggiornaLista();     // Aggiorna la vista e disabilita il bottone se vuoto
+  const divAvvisi = document.querySelectorAll('.articolo .divAvviso');
+  divAvvisi.forEach(elAvviso => elAvviso.remove());
 });
 
 // Simula il comportamento del link Acquista...:

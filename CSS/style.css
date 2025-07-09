@@ -7,51 +7,48 @@
 /* html {
   scrollbar-gutter: stable;
 }
-html, body {
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-} */
 
 /* Variabili */
+/* Colori fissi */
+:root {
+    --Orange-Color: #ffbb00;
+    /* Non Usato */
+    --White-Color: #e7e7e7;
+    --GrayOpacity-Color: rgba(128, 128, 128, 0.4);
+    /* Non Usato */
+}
+
 /* Tema chiaro (default) */
 [data-theme="light"] {
-    --bg-color: #00a8c6;
-    --bg-color_btn-input: #e7e7e7;
-    --icon-color: #00a8c6;
-    --h-a-li-input: #000000;
-    --color0: #e7e7e7;
-    --color1: #f0c864;
-    --color2: #ed9dff;
-    --color3: #494949;
-    --color3_Op1: #7b7b7b1a;
-    --text-p-color: #000000;
-    --text-s-color: #f09c00;
-    --text-t-color: #000000;
-    --border-color0: #e7e7e7;
-    --border-color1: #00a8c6;
+    --Bg-Generic-Color: #00a8c6;
+    --Border-Color: #e7e7e7;
+    --Bg-InputBtn-Color: #e7e7e7;
+
+    --Bg-Container-Color1: #ffbb00;
+    --Bg-Container-Color2: #dddddd;
+    --Bg-Container-Color3: #ffa1d5;
+    /* Altri possibili: #fd93cd #e3d4ff #d4e7d4 #cfcfcf #f9b2c1*/
+    --Bg-Container-Color4: #cca333;
+
+    --Text-B-W-Color: #000000;
+    --Text-B-O-Color: #000000;
+    /* Non Usato */
 }
 
 /* Tema scuro */
 [data-theme="dark"] {
-    --bg-color: #d38900;
-    --bg-color_btn-input: #494949;
-    --icon-color: #f09c00;
-    --h-a-li-input: #f09c00;
-    --color0: #000000;
-    --color1: #494949;
-    --color2: #430069;
-    --color3: #e7e7e7;
-    --color3_Op1: #e7e7e71a;
-    --text-p-color: #e7e7e7;
-    --text-s-color: #f09c00;
-    --text-t-color: #f09c00;
-    --border-color0: #d38900;
-    --border-color1: #d38900;
+    --Bg-Generic-Color: #d38900;
+    --Border-Color: #d38900;
+    --Bg-InputBtn-Color: #494949;
+
+    --Bg-Container-Color1: #494949;
+    --Bg-Container-Color2: #231e4d;
+    --Bg-Container-Color3: #231e4d;
+    --Bg-Container-Color4: #5f5f5f;
+
+    --Text-B-W-Color: #e7e7e7;
+    --Text-B-O-Color: #d38900;
+    /* Non Usato */
 }
 
 /* STILE GENERICO PER TIPO DI ELEMENTI */
@@ -63,6 +60,10 @@ h5,
 h6,
 a {
     line-height: 1;
+}
+
+h1 {
+    font-size: 2.4em;
 }
 
 h3 {
@@ -81,13 +82,19 @@ li,
 a,
 label,
 input,
-button {
-    color: var(--text-p-color);
+button,
+.divAvviso::after {
+    color: var(--Text-B-W-Color);
 }
 
 h1 span {
-    color: var(--icon-color);
+    color: var(--Bg-Generic-Color);
 }
+
+/* .articolo h2,
+h3 {
+    color: var(--Text-B-O-Color);
+} */
 
 p,
 .AsideSX_ul li,
@@ -99,8 +106,9 @@ label,
 }
 
 header span:not(h1 span),
-.spanAvviso,
-a {
+/* .spanAvviso, */
+a,
+.divAvviso::after {
     font-size: 18px;
     font-weight: 600;
 }
@@ -118,7 +126,6 @@ input:not(header input, .inputSearch) {
 }
 
 input:focus {
-    border: none;
     outline: none;
 }
 
@@ -136,7 +143,7 @@ input,
 button:not(.btnTheme, .btnSaltaDentro) {
     border: 0;
     padding: 2px;
-    background-color: var(--bg-color_btn-input);
+    background-color: var(--Bg-InputBtn-Color);
 }
 
 input:not(.inputEmail, .inputPassword, .inputSearch),
@@ -144,8 +151,21 @@ button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt) {
     font-size: 14px;
 }
 
+[data-theme="dark"] input:not(.inputEmail, .inputPassword, .inputSearch),
+[data-theme="dark"] .articolo button,
+[data-theme="dark"] .loginForm button,
+[data-theme="dark"] .cartBoxArt .btnxmarkCartBoxArt {
+    background-color: var(--Bg-Container-Color3);
+}
+
+/* [data-theme="dark"]  */nav li,
+/* [data-theme="dark"]  */button:not(.btnTheme, .btnSaltaDentro), 
+/* [data-theme="dark"]  */input/* :not(.inputEmail, .inputPassword).borderDarkTheme */ {
+    border: 1px solid var(--Bg-Generic-Color);
+}
+
 i {
-    color: var(--icon-color);
+    color: var(--Bg-Generic-Color);
 }
 
 i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
@@ -190,7 +210,7 @@ button:not(.btnTheme, .btnSaltaDentro) {
 
 body {
     font-family: 'Times New Roman', Times, serif;
-    background-color: var(--bg-color);
+    background-color: var(--Bg-Generic-Color);
     padding: 20px;
 }
 
@@ -203,7 +223,7 @@ body>div {
 /* HEADER */
 header {
     position: relative;
-    background-color: var(--color1);
+    background-color: var(--Bg-Container-Color1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -238,17 +258,17 @@ header {
     position: absolute;
     top: 110%;
     right: -15px;
-    background: var(--color1);
-    border: 1px solid var(--border-color0);
+    background: var(--Bg-Container-Color1);
+    border: 1px solid var(--Border-Color);
     z-index: 10;
     width: calc(16vw - 3px);
     min-width: 320px;
     /* 316.4px; */
-    box-shadow: 0 0 8px var(--color3);
+    box-shadow: 0 0 8px var(--White-Color);
 }
 
 .loginForm>div {
-    background: var(--color3_Op1);
+    background: var(--Bg-Container-Color4);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -276,7 +296,7 @@ header {
 
 /* NAV */
 nav {
-    background-color: var(--color0);
+    background-color: var(--Bg-Container-Color2);
 }
 
 nav ul {
@@ -285,8 +305,8 @@ nav ul {
 }
 
 nav li {
-    background: var(--color1);
-    border: 1px solid var(--color1);
+    background: var(--Bg-Container-Color1);
+    /* border: 1px solid var(--Bg-Container-Color1); */
     padding: 4px;
 }
 
@@ -310,7 +330,7 @@ main {
     width: calc(74% - 12px);
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--color1);
+    background-color: var(--Bg-Container-Color1);
     /* justify-content: space-evenly; */
     gap: 10px;
 }
@@ -318,8 +338,8 @@ main {
 /* DIV nel MAIN contenenti ARTICOLI */
 .articolo {
     min-height: 200px;
-    background: var(--color3_Op1);
-    border: 1px solid var(--border-color0);
+    background: var(--Bg-Container-Color4);
+    border: 1px solid var(--Border-Color);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -339,7 +359,7 @@ main> :nth-child(n+3) {
 
 /* IMG ARTICOLI */
 .articolo img {
-    background-color: var(--text-s-color);
+    background-color: var(--Bg-Generic-Color);
     width: 92%;
     height: auto;
     display: block;
@@ -358,7 +378,7 @@ main> :nth-child(n+3) {
 /* ASIDE */
 aside {
     width: calc(13% - 4px);
-    background-color: var(--color2);
+    background-color: var(--Bg-Container-Color3);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -395,8 +415,9 @@ aside ul,
 }
 
 .boxPiuAcq {
-    background: var(--color3_Op1);
-    border: 1px solid var(--border-color0);
+    background: var(--Bg-Container-Color4);
+    /* Opacity */
+    border: 1px solid var(--Border-Color);
     display: flex;
     flex-direction: column;
     align-self: stretch;
@@ -426,15 +447,16 @@ aside ul,
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
-    background: var(--color3_Op1);
-    border: 1px solid var(--border-color0);
+    background: var(--Bg-Container-Color4);
+    /* Opacity */
+    border: 1px solid var(--Border-Color);
 }
 
 .cartImg {
     width: 34%;
     height: auto;
     object-fit: cover;
-    background-color: var(--color1);
+    background-color: var(--Bg-Container-Color1);
 }
 
 .cartBoxArtQnt {
@@ -460,6 +482,7 @@ aside ul,
 .fa-xmark {
     color: #cc0000;
     font-size: 15px;
+    margin-right: 0.5px;
 }
 
 .asideCartDivBtn {
@@ -472,47 +495,60 @@ aside ul,
 
 /* FOOTER */
 footer {
-    background-color: var(--color0);
+    background-color: var(--Bg-Container-Color2);
     text-align: center;
 }
 
 /* AVVISO "Aggiunto al carrello!" */
 /* Questo div contiene anche img articoli. */
-.divAvvisoAgg {
+.box_img-divAvviso {
     position: relative;
 }
 
-.spanAvviso {
+/* .spanAvviso {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--color2);
-    color: var(--text-p-color);
+    background: var(--Bg-Container-Color3);
+    color: var(--Text-B-W-Color);
     padding: 4px 6px;
-    border: 2px solid var(--border-color1);
+    border: 2px solid var(--Bg-Generic-Color);
     border-radius: 16px;
-    box-shadow: 0 0 8px var(--color3);
+    box-shadow: 0 0 8px var(--White-Color);
     z-index: 10;
     white-space: nowrap;
+} */
+
+.fileSVG {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 220px;
+  height: auto;
+  pointer-events: none;
+  overflow: visible;
 }
 
-/* .divAvvisoAgg span {
-  display: inline-block;
-  background: url('../img/fumetto.png') no-repeat center center;
-  background-size: contain;
-  color: #333;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 24px 40px 32px 40px; /* adatta i valori in base alla forma del balloon
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
+.pathPolistellare {
+  fill: var(--Bg-Container-Color3);
+  stroke: var(--Bg-Generic-Color);
+  stroke-width: 0.8px;
+  filter: drop-shadow(0 0 8px var(--White-Color));
+}
+
+.divAvviso::after {
+  content: "Aggiunto al carrello!";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   white-space: nowrap;
-  min-width: 120px;opzionale, per evitare che il testo esca
-  min-height: 60px; opzionale, per adattare all'immagine
-  text-align: center;
-} */
+  pointer-events: none;
+  z-index: 20;
+}
 
 /* Maledico MsEdge che applica 8px di bordi che riducono la viewport non permettendo una risoluzione perfetta con le misure dei dispositivi utilizzati. */
 /* 0 - 359px: layout ultra compatto, nascondi aside, riduci padding e font */
@@ -526,67 +562,54 @@ footer {
 /* 0/412 - 767px: layout mobile, aside sotto main, main a tutta larghezza */
 @media (max-width: 767px) {
     h1 {
-        font-size: 1.6em;
-        /* 2em */
+        font-size: 2em;
     }
 
     h2 {
         font-size: 15px;
-        /* 1.2em */
     }
 
     h3 {
         font-size: 14px;
-        /* 1em */
     }
 
     p,
-    .spanAvviso,
     .AsideSX_ul li,
     label,
     .inputEmail,
     .inputPassword,
     .inputSearch {
         font-size: 13px;
-        /* 15 17 */
     }
 
     input:not(.inputEmail, .inputPassword, .inputSearch),
     button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt) {
         font-size: 12px;
-        /* 12.4 14 */
     }
 
     .loginForm input,
     .inputSearch,
-    .spanAvviso {
+    .spanAvviso,
+    .divAvviso::after {
         font-weight: 400;
-        /* 600 */
     }
 
     input:not(header input, .inputSearch) {
         width: 40px;
     }
 
-    .spanAvviso {
-        padding: 2px;
-    }
-
     i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
         font-size: 15px;
-        /* 20 24 */
     }
 
     .fa-magnifying-glass {
         font-size: 13px;
-        /* 15 17 */
     }
 
     /* HEADER */
     header span:not(h1 span),
     a {
         font-size: 13px;
-        /* 17.4 18 */
         font-weight: 600;
     }
 
@@ -652,6 +675,14 @@ footer {
         flex: 1 1 34%;
     }
 
+    .articolo .fileSVG {
+        width: 140px;
+    }
+
+    .articolo .divAvviso::after {
+        font-size: 13px;
+    }
+
     .asideCart {
         width: 45%;
         order: 1;
@@ -663,12 +694,10 @@ footer {
 
     .cartBoxArtQnt h3 {
         line-height: 11px;
-        /* 11 è corretto */
     }
 
     .fa-xmark {
         font-size: 12px;
-        /* 15 */
     }
 }
 
@@ -676,6 +705,9 @@ footer {
 
 /* max 479px: extra perfezionamento cart e main */
 @media (max-width: 479px) {
+    h1 {
+        font-size: 1.6em;
+    }
 
     /* NAV */
     nav ul {
@@ -684,7 +716,6 @@ footer {
 
     nav li {
         padding: 2px;
-        /* 4 */
     }
 
     nav a {
@@ -704,6 +735,14 @@ footer {
     main .articolo {
         width: 100%;
         flex: auto;
+    }
+
+    .articolo .fileSVG {
+        width: 150px;
+    }
+
+    .articolo .divAvviso::after {
+        font-size: 14px;
     }
 
     .asideCart {
@@ -735,25 +774,18 @@ footer {
     }
 
     p,
-    .spanAvviso,
     .AsideSX_ul li,
     label,
     .inputEmail,
     .inputPassword,
     .inputSearch {
         font-size: 15px;
-        /* 17 */
     }
 
     header span:not(h1 span),
     a {
         font-size: 17.4px;
-        /* 18 */
         font-weight: 600;
-    }
-
-    main> :nth-child(n+2) .spanAvviso {
-        padding: 2px;
     }
 
     .cartBoxArt {
@@ -773,32 +805,26 @@ footer {
     input:not(.inputEmail, .inputPassword, .inputSearch),
     button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt) {
         font-size: 12.4px;
-        /* 14 */
     }
 
     .fa-xmark {
         font-size: 12px;
-        /* 15 */
     }
 
     i:not(.fa-magnifying-glass, main i, .asideCartDivBtn i, .fa-xmark) {
         font-size: 20px;
-        /* 24 */
     }
 
     .loginForm input,
     .inputSearch,
-    .spanAvviso {
+    .divAvviso::after {
         font-weight: 400;
-        /* 600 */
     }
 
     .fa-magnifying-glass {
         font-size: 15px;
-        /* 17 */
     }
 
-    /* prendere pure i line-height */
     .cartBoxArtQnt h3 {
         line-height: 11px;
     }
@@ -809,11 +835,11 @@ footer {
     }
 
     main {
-        width: calc(54% - 12px);
+        width: calc(56% - 12px);
     }
 
     aside {
-        width: calc(23% - 4px);
+        width: calc(22% - 4px);
     }
 
     main> :nth-child(1) {
@@ -824,16 +850,20 @@ footer {
         /* width: calc(50% - 5px); */
         flex: 1 1 34%;
     }
+
+    main> :nth-child(n+2) .fileSVG {
+        width: 140px;
+    }
+
+    main> :nth-child(n+2) .divAvviso::after {
+        font-size: 13px;
+    }
 }
 
 /* 1024 - 1279px: desktop standard, layout come da default ma con spaziatura maggiore */
 @media (min-width: 1024px) and (max-width: 1279px) {
     h2 {
         font-size: 1.3em;
-    }
-
-    main> :nth-child(n+2) .spanAvviso {
-        padding: 2px;
     }
 
     .loginForm {
@@ -857,14 +887,18 @@ footer {
         /* width: calc(50% - 5px); */
         flex: 1 1 34%;
     }
+
+    main> :nth-child(n+2) .fileSVG {
+        width: 180px;
+    }
+
+    main> :nth-child(n+2) .divAvviso::after {
+        font-size: 16px;
+    }
 }
 
 /* 1280/1366 - 1535px: desktop largo */
 @media (min-width: 1280px) and (max-width: 1535px) {
-    main> :nth-child(n+3) .spanAvviso {
-        padding: 2px 4px;
-    }
-
     .loginForm {
         width: calc(20vw - 3px);
         min-width: 320px;
@@ -882,14 +916,18 @@ footer {
         /* width: calc(33.3% - 6.666666666666667px); */
         flex: 1 1 26%;
     }
+    
+    main> :nth-child(n+3) .fileSVG {
+        width: 180px;
+    }
+
+    main> :nth-child(n+3) .divAvviso::after {
+        font-size: 16px;
+    }
 }
 
 /* 1536 - 1919px: desktop full hd */
 @media (min-width: 1536px) and (max-width: 1919px) {
-    main> :nth-child(n+3) .spanAvviso {
-        padding: 4px 4px;
-    }
-
     .loginForm {
         width: calc(16vw - 3px);
         min-width: 320px;
@@ -915,14 +953,6 @@ footer {
 
 /* 2048 - 2559px (extra)
 @media (min-width: 2048px) and (max-width: 2559px) {
-.cartBoxArt {
-        justify-content: space-evenly;
-    }
-
-    .cartImg {
-        width: 34%;
-        height: auto;
-    }
 } */
 
 /* 2560px e oltre: desktop 4k e ultrawide */
