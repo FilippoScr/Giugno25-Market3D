@@ -1,6 +1,5 @@
 ## 🖥️ [Market3D](https://filipposcr.github.io/Giugno25-Market3D/) 🧊
 <br>
-<br>
 
 ### 👨‍💻📽️📊 Presentazione:
 Ciao a tutti,  
@@ -17,7 +16,6 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 - 📍 Dove posizionare cosa.
 - 🏷️ Come chiamarla e con quali contenuti riempirla.
 <br>
-<br>
 
 #### Successivamente siamo passati a JavaScript:
 - 📦 Creazione di un array di oggetti.
@@ -28,7 +26,6 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 - 🔎 Aggiunta della barra di ricerca.
 - 🌗 Implementazione dei temi light e dark.
 - 🔐 Funzione di login e logout.
-<br>
 <br>
 
 ### 💬 Pareri personali:
