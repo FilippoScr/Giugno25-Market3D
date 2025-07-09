@@ -198,10 +198,10 @@ const carrello = [];
   divAvviso.textContent = "Aggiunto al carrello!";
   boxImgDivAvviso.appendChild(divAvviso);
 
-  // Rimuovi divAvviso dopo 1.5 secondi
+  // Rimuovi divAvviso dopo 2 secondi
   setTimeout(() => {
     boxImgDivAvviso.removeChild(divAvviso);
-  }, 1500);
+  }, 2000);
 } */
 
 function avviso(boxImgDivAvviso) {
@@ -221,10 +221,10 @@ function avviso(boxImgDivAvviso) {
   divAvviso.innerHTML = SVG;
   boxImgDivAvviso.appendChild(divAvviso);
 
-  // Rimuovi divAvviso dopo 1.5 secondi
+  // Rimuovi divAvviso dopo 2 secondi
   setTimeout(() => {
     boxImgDivAvviso.removeChild(divAvviso);
-  }, 1500);
+  }, 2000);
 }
 
 // Funzione per aggiungere un articolo al carrello: modifica28-29-17-articolo.
