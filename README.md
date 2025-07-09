@@ -1,6 +1,6 @@
 
 
-<h2 align="center"><a href="https://filipposcr.github.io/Giugno25-Market3D/">🖥️ Market3D 🧊</a></h2>
+<h1 align="center"><a href="https://filipposcr.github.io/Giugno25-Market3D/">🖥️ Market3D 🧊</a></h1><br>
 
 <div align="center">
 
@@ -18,8 +18,9 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 #### Siamo partiti pensando a come sarebbe dovuta essere la nostra one-page site, definendo le basi in HTML e CSS:
 📍 Dove posizionare cosa.  
 🏷️ Come chiamarla e con quali contenuti riempirla.
+<br>
 
-<h4 style="color: blue;">Successivamente siamo passati a JavaScript:</h4>
+#### Successivamente siamo passati a JavaScript:
 📦 Creazione di un array di oggetti.  
 🧩 Popolamento dinamico del `<main>`.  
 🕹️ Inserimento di input e pulsanti.  
