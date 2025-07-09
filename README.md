@@ -1,6 +1,7 @@
 
 
 <h2 align="center"><a href="https://filipposcr.github.io/Giugno25-Market3D/">🖥️ Market3D 🧊</a></h2>
+
 <div align="center">
 
 ### 👨‍💻📽️📊 Presentazione:
@@ -18,7 +19,7 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 📍 Dove posizionare cosa.  
 🏷️ Come chiamarla e con quali contenuti riempirla.
 
-#### Successivamente siamo passati a JavaScript:
+<h4 color="yellow">Successivamente siamo passati a JavaScript:</h4>
 📦 Creazione di un array di oggetti.  
 🧩 Popolamento dinamico del `<main>`.  
 🕹️ Inserimento di input e pulsanti.  
@@ -27,6 +28,7 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 🔎 Aggiunta della barra di ricerca.  
 🌗 Implementazione dei temi light e dark.  
 🔐 Funzione di login e logout.
+<br>
 <br>
 
 ### 💬 Pareri personali:
