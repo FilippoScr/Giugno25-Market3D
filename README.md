@@ -1,6 +1,6 @@
 
 
-<h2 align="center"><a href="https://filipposcr.github.io/Giugno25-Market3D/" target="_blank" rel="noopener noreferrer">🖥️ Market3D 🧊</a></h2>
+<h2 align="center"><a href="https://filipposcr.github.io/Giugno25-Market3D/">🖥️ Market3D 🧊</a></h2>
 <div align="center">
 
 ### 👨‍💻📽️📊 Presentazione:
@@ -42,5 +42,5 @@ Per ora, sentivo la necessità di pubblicare qualcosa online ⛵ per la prima vo
 
 ---
 
-#### 🕰️ Finita la lettura 📗, a questo punto vorrei proporvi di visitare la <a href="https://filipposcr.github.io/Giugno25-Market3D/" target="_blank" rel="noopener noreferrer">pagina</a> 🛬 e magari darmi un vostro parere 👍, grazie 🎩.
+#### 🕰️ Finita la lettura 📗, a questo punto vorrei proporvi di visitare la [pagina](https://filipposcr.github.io/Giugno25-Market3D/) 🛬 e magari darmi un vostro parere 👍, grazie 🎩.
 </div>
