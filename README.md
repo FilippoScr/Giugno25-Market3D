@@ -36,4 +36,4 @@ Per ora, sentivo la necessità di pubblicare qualcosa online per la prima volta,
 Cerco la porta d’ingresso per il mio futuro!
 
 
-Finita la lettura, a questo punto vorrei proporvi di visitare la pagina e magari darmi un vostro parere, grazie.
+Finita la lettura, a questo punto vorrei proporvi di visitare la [pagina](https://filipposcr.github.io/Giugno25-Market3D/) e magari darmi un vostro parere, grazie.
