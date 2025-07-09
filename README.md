@@ -15,12 +15,12 @@ L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, 
 <br>
 
 ### 🛠 Struttura e funzionalità:
-#### Siamo partiti pensando a come sarebbe dovuta essere la nostra one-page site, definendo le basi in HTML e CSS:
+#### <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" width="20" height="20" alt="HTML5" /><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="20" height="20" alt="CSS3" />Siamo partiti pensando a come sarebbe dovuta essere la nostra one-page site, definendo le basi in HTML e CSS:
 📍 Dove posizionare cosa.  
 🏷️ Come chiamarla e con quali contenuti riempirla.
 <br>
 
-#### Successivamente siamo passati a JavaScript:
+#### <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="20" height="20" alt="JavaScript" />Successivamente siamo passati a JavaScript:
 📦 Creazione di un array di oggetti.  
 🧩 Popolamento dinamico del `<main>`.  
 🕹️ Inserimento di input e pulsanti.  
