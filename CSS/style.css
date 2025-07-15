@@ -224,14 +224,14 @@ body>div {
 }
 
 body::before {
-    content: 'viewport: ' attr(data-vw) 'px';
+    content: 'vw: ' attr(data-vw) 'px';
     position: fixed;
-    bottom: 0;
+    top: 0;        /* ⬅️ invece di bottom */
     left: 0;
     font-size: 12px;
     background: red;
     color: white;
-    z-index: 9999;
+    z-index: 99999;
     padding: 2px 4px;
 }
 
