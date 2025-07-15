@@ -7,7 +7,7 @@
 ### 👨‍💻📽️📊 Presentazione:
 Ciao a tutti,  
 vi presento questo esercizio didattico 📐, iniziato durante un corso di formazione 📖 e poi proseguito anche dopo.  
-È stato realizzato in collaborazione 👫 con la mia collega 👩‍💻 [Claudia Laici](https://github.com/Claudia-Laici/Claudia-Laici) 👩‍🎓, con lei ho lavorato con molto piacere dall'inizio fino al completamento delle basi 🟧 e delle funzionalità principali 🔷, portando a termine una home 🏠 page  📄 funzionante ✅.  
+È stato realizzato in collaborazione 👫 con una collega 👩‍💻 del corso, con lei ho lavorato con molto piacere dall'inizio fino al completamento delle basi 🟧 e delle funzionalità principali 🔷, portando a termine una home 🏠 page 📄 funzionante ✅.  
 In seguito abbiamo deciso di proseguire individualmente 🧍‍♂️ per le personalizzazioni, adottando strutture e colorazioni differenti 🎨, come anche le Media Query 📱 e funzionalità JavaScript aggiuntive 🧠.
 
 L’esercizio iniziale prevedeva la costruzione di un piccolo marketplace 🏪, evitando (come prassi) l’utilizzo di argomenti non ancora trattati durante il corso 📖, motivo per cui è stato deciso di tenere il carrello 🛒 direttamente all’interno della home 🏠, altrimenti avremmo fatto ricorso al web storage 💾, che sarebbe di fondamentale utilizzo in caso di futura implementazione 🪟, anche se nel corso dello svolgimento, è venuto comunque naturale includere piccoli concetti extra e andare così un po' oltre 🚀.
