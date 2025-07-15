@@ -223,6 +223,18 @@ body>div {
     gap: 10px;
 }
 
+body::before {
+    content: 'viewport: ' attr(data-vw) 'px';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+    background: red;
+    color: white;
+    z-index: 9999;
+    padding: 2px 4px;
+}
+
 /* HEADER */
 header {
     position: relative;
