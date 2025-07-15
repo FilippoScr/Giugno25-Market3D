@@ -4,9 +4,11 @@
     box-sizing: border-box;
 }
 
-/* html {
+html {
   overflow: auto;
   scrollbar-gutter: stable overlay;
+  -webkit-text-size-adjust: 100%; /* evita zoom testuale automatico */
+  text-size-adjust: 100%;
 }
 
 /* Variabili */
