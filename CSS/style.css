@@ -4,12 +4,10 @@
     box-sizing: border-box;
 }
 
-html {
+/* html {
   overflow: auto;
   scrollbar-gutter: stable overlay;
-  -webkit-text-size-adjust: 100%; /* evita zoom testuale automatico */
-  text-size-adjust: 100%;
-}
+} */
 
 /* Variabili */
 /* Colori fissi */
@@ -221,18 +219,6 @@ body>div {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-body::before {
-    content: 'vw: ' attr(data-vw) 'px';
-    position: fixed;
-    top: 0;        /* ⬅️ invece di bottom */
-    left: 0;
-    font-size: 12px;
-    background: red;
-    color: white;
-    z-index: 99999;
-    padding: 2px 4px;
 }
 
 /* HEADER */

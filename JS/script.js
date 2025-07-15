@@ -451,7 +451,6 @@ document.addEventListener("DOMContentLoaded", function () {
       icon.classList.remove('fa-moon');
       icon.classList.add('fa-sun');
     }
-    document.body.setAttribute("data-vw", window.innerWidth);
   });
 
 
