@@ -316,7 +316,7 @@ function aggiornaLista() {
       top: "0px"
     });
     btnElimina.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
-    btnElimina.addEventListener("click", function () {
+    btnElimina.addEventListener("mousedown", function () {
       eliminaProdotto(articolo);
       const divAvvisi = document.querySelectorAll('.articolo .divAvviso');
       divAvvisi.forEach(elAvviso => elAvviso.remove());
@@ -443,4 +443,18 @@ document.addEventListener("DOMContentLoaded", function () {
   // Ricerca solo al click del pulsante cerca:
   searchButton.addEventListener("click", ricerca);
 
+  // Impedisce l'inserimento di valori inferiori a 1 negli input (anche quelli creati dinamicamente dopo il caricamento pagina):
+  const container = document.getElementById('boxMainAside');
+
+  container.addEventListener('input', (e) => {
+    const target = e.target;
+
+    // Controlla se l'elemento che ha generato l'evento è un input number
+    if (target.matches('input[type="number"]')) {
+      const value = parseInt(target.value, 10);
+      if (isNaN(value) || value < 1) {
+        target.value = 1;
+      }
+    }
+  });
 });
