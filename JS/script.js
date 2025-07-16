@@ -1,5 +1,3 @@
-/* all'apertura della pagina avvia funzione di caricamento oggetti nel main */
-
 const artArray = [
   {
     id: 1,
@@ -94,14 +92,6 @@ const artArray = [
   },
 ];
 
-/* const viewportWidth = window.innerWidth;
-console.log('Viewport width:', viewportWidth, 'px');
-console.log("viewport visibile:", window.innerWidth); // dovrebbe essere 2552
-console.log("document width:", document.documentElement.clientWidth);
-console.log("finestra esterna:", window.outerWidth); // dovrebbe essere 2560
- */
-
-
 // Gestione Salta dentro!.
 const btnSaltaDentro = document.getElementById('btnSaltaDentro');
 const loginForm = document.getElementById('loginForm');
@@ -130,16 +120,12 @@ function enabledDisabledBtnLoginForm() {
   const btnLogin = document.getElementById('btnLogin');
 
   function listenerEmailPw() {
-    // Login disabilitato se 1 dei campi è vuoto:
     btnLogin.disabled = (Email.value === "" || Password.value === "");
-    // Register disabilitato se 1 dei campi è pieno:
     // btnRegister.disabled = (Email.value !== "" || Password.value !== ""); // Valutare se lasciarlo sempre visibile o meno.
   }
 
-  // Controllo iniziale subito dopo la definizione della funzione
   listenerEmailPw();
 
-  // Simula il comportamento del link Registrati...:
   btnRegister.onclick = function (e) {
     e.stopPropagation();
     if (!btnRegister.disabled) {
@@ -163,9 +149,8 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
   const span = btnSaltaDentro.querySelector('span');
   icona.classList.remove('fa-person-through-window');
   icona.classList.add('fa-user-check');
-  span.textContent = 'Benvenuto Z!';
+  span.textContent = 'Benvenuto Visitatore!';
 
-  // Nascondi subito il form
   loginForm.style.display = 'none';
 
   // Sostituisci il contenuto del div interno al loginForm con il bottone "Scollegati!"
@@ -176,7 +161,6 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     // Cancella dati di autenticazione o carrello
     localStorage.clear();
     sessionStorage.clear();
-    // ...altri dati da cancellare...
 
     // Ricarica la pagina o fai redirect
     location.reload();
@@ -186,23 +170,6 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 
 
 const carrello = [];
-
-/* function avviso(boxImgDivAvviso) {
-  // Rimuovi eventuale div di avviso già presente
-  const oldDivAvviso = boxImgDivAvviso.querySelector('div');
-  if (oldDivAvviso) boxImgDivAvviso.removeChild(oldDivAvviso);
-
-  // Crea e aggiungi nuovo div
-  const divAvviso = document.createElement("div");
-  divAvviso.classList.add("divAvviso");
-  divAvviso.textContent = "Aggiunto al carrello!";
-  boxImgDivAvviso.appendChild(divAvviso);
-
-  // Rimuovi divAvviso dopo 2 secondi
-  setTimeout(() => {
-    boxImgDivAvviso.removeChild(divAvviso);
-  }, 2000);
-} */
 
 function avviso(boxImgDivAvviso) {
   // Rimuovi eventuale div di avviso già presente
@@ -227,10 +194,8 @@ function avviso(boxImgDivAvviso) {
   }, 2000);
 }
 
-// Funzione per aggiungere un articolo al carrello: modifica28-29-17-articolo.
+// Funzione per aggiungere un articolo al carrello:
 function aggiungiAlCarrello(articolo) {
-  //const aggiungiArt = artArray.find(item => item.id === id);
-  // Prendi la quantità attuale dall'input
   const input = document.getElementById(`inputQntArt${articolo.id}`);
   const quantita = parseInt(input.value, 10) || 1;
   const index = carrello.findIndex((item) => item.id === articolo.id);
@@ -249,7 +214,7 @@ function aggiungiAlCarrello(articolo) {
   aggiornaLista();
 }
 
-// Funzione per creare gli articoli nel main: modifica132-153-47-60 aggiunte sotto
+// Funzione per creare gli articoli nel main:
 function creaArticoli(param = artArray) {
   const main = document.querySelector("main");
   main.innerHTML = "";
@@ -274,11 +239,11 @@ function creaArticoli(param = artArray) {
             <p id="pPriceArt${articolo.id}">Totale: €${articolo.prezzo.toFixed(2)}</p>`;
     /* Prima nei backtick: <button onclick="aggiungiAlCarrello(${articolo.id})">Aggiungi al carrello...</button> */
     /* Prima nell'input: onchange="calcolaQuantita(${articolo.id} */
-    // Event listener per l'input quantità
+    // Event listener per l'input quantità:
     const inputQnt = div.querySelector(`#inputQntArt${articolo.id}`);
     inputQnt.addEventListener("change", () => calcolaQuantita(articolo));
 
-    // Crea il bottone e aggiungi l'event listener
+    // Crea il bottone e aggiungi l'event listener:
     const btnAggiungi = document.createElement("button");
     btnAggiungi.innerHTML = `Aggiungi al carrello <i class="fa-solid fa-cart-plus"></i>`;
     btnAggiungi.addEventListener("click", () => {
@@ -293,23 +258,21 @@ function creaArticoli(param = artArray) {
   }
 }
 
-// Funzione per calcolare prezzo totale dato prezzo e quantità modifica77-articolo.
+// Funzione per calcolare prezzo totale in base a prezzo e quantità:
 function calcolaQuantita(articolo) {
   const input = document.getElementById(`inputQntArt${articolo.id}`);
   const quantita = parseInt(input.value, 10) || 1;
-  //const articolo = artArray.find(item => item.id === id);
   const prezzoTotale = (articolo.prezzo * quantita).toFixed(2);
 
-  // Aggiorna il DOM
   const prezzoEl = document.getElementById(`pPriceArt${articolo.id}`);
   prezzoEl.textContent = `Totale: €${prezzoTotale}`;
 }
 
-//nuova ricalcoloQuantità
+//Nuovo ricalcolo quantità:
 function aggiornaQuantitaCarrello(articolo) {
   const input = document.getElementById(`inputCartQntArt${articolo.id}`);
   const nuovaQuantita = parseInt(input.value, 10) || 1;
-  // Trova l'articolo nel carrello e aggiorna la quantità
+  // Trova l'articolo nel carrello e aggiorna la quantità:
   const index = carrello.findIndex(item => item.id === articolo.id);
   if (index !== -1) {
     carrello[index].quantita = nuovaQuantita;
@@ -317,7 +280,7 @@ function aggiornaQuantitaCarrello(articolo) {
   }
 }
 
-// Funzione placeholder per aggiornare la lista carrello (può essere migliorata) modifica90-99 aggiunte sotto, 184Class-label-input-da198a210
+// Funzione placeholder per aggiornare la lista carrello:
 function aggiornaLista() {
   const ulCart = document.querySelector("#asideCart ul");
   ulCart.innerHTML = ""; // Pulisce il contenuto precedente
@@ -341,10 +304,10 @@ function aggiornaLista() {
       </label>
     </div>`;
     /* Prima nei backtick: <button onclick="eliminaProdotto(${articolo.id})">Elimina</button> */
-    // Event listener per l'input quantità
+    // Event listener per l'input quantità:
     const inputCartQnt = liCart.querySelector(`#inputCartQntArt${articolo.id}`);
     inputCartQnt.addEventListener("change", () => aggiornaQuantitaCarrello(articolo));
-    // Crea il bottone e aggiungi l'event listener
+    // Crea il bottone e aggiungi l'event listener:
     const btnElimina = document.createElement("button");
     btnElimina.classList.add("btnxmarkCartBoxArt");
     Object.assign(btnElimina.style, {
@@ -399,24 +362,31 @@ document.getElementById('btnTrashCart').addEventListener('click', function () {
 
 // Simula il comportamento del link Acquista...:
 document.getElementById('btnCartAcq').addEventListener('click', function () {
-  window.location.href = "procedAcquisto.html";
+  window.location.href = "../pages/pageEmpty.html";
 });
 
 
-// Barra di ricerca (cerca nell'array e ricostruisce il DOM):
-function ricerca(event) {
-  console.log(event); // TEST: Vedrai l'oggetto evento! (event come parametro e il console.log in questo caso non servono).
+/* // Barra di ricerca (cerca nell'array e ripopola il main): */
+function ricerca() {
   const parola = document.getElementById("inputSearch").value.toLowerCase().trim();
 
   if (parola === "") {
     creaArticoli(artArray);
   } else {
-    creaArticoli(
-      artArray.filter(articolo =>
-        articolo.nome.toLowerCase().includes(parola) /* ||
-        articolo.descrizione.toLowerCase().includes(parola) */
-      )
-    );
+    const risultati = artArray.filter(articolo =>
+      articolo.nome.toLowerCase().includes(parola) /* ||
+      articolo.descrizione.toLowerCase().includes(parola) */);
+    if (risultati.length > 0) {
+      creaArticoli(risultati)
+    } else {
+      const main = document.querySelector("main");
+      main.innerHTML = "";
+      const msg = document.createElement("p");
+      msg.classList.add("msgArtNonTrovato");
+      msg.textContent = "Articolo non trovato!";
+      msg.style.textAlign = "center";
+      main.appendChild(msg);
+    }
   }
 }
 
