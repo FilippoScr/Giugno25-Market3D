@@ -92,6 +92,21 @@ const artArray = [
   },
 ];
 
+// nav li href:
+const navLi = [{ id: "liHome", href: "index.html" },
+{ id: "liAbout", href: "../pages/pageEmpty.html" },
+{ id: "liProducts", href: "../pages/pageEmpty.html" },
+{ id: "liServices", href: "../pages/pageEmpty.html" },
+{ id: "liContact", href: "../pages/pageEmpty.html" }];
+
+navLi.forEach(item => {
+  document.getElementById(item.id).addEventListener('click', () => {
+    window.location.href = item.href;
+  });
+});
+
+
+
 // Gestione Salta dentro!.
 const btnSaltaDentro = document.getElementById('btnSaltaDentro');
 const loginForm = document.getElementById('loginForm');

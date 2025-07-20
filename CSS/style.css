@@ -62,7 +62,8 @@ h3,
 h4,
 h5,
 h6,
-a {
+a,
+nav span {
     line-height: 1;
 }
 
@@ -106,6 +107,7 @@ label,
 
 header span:not(h1 span),
 a,
+nav span,
 .msgArtNonTrovato,
 .divAvviso::after {
     font-size: 18px;
@@ -124,16 +126,7 @@ input:not(header input, .inputSearch) {
     width: 50px;
 }
 
-input:focus {
-    outline: none;
-}
-
-input:disabled,
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
+nav li,
 button:enabled {
     cursor: pointer;
 }
@@ -161,6 +154,49 @@ button:not(.btnTheme, .btnSaltaDentro, .buttonSearch, .btnxmarkCartBoxArt) {
 /* [data-theme="dark"]  */button:not(.btnTheme, .btnSaltaDentro), 
 /* [data-theme="dark"]  */input/* :not(.inputEmail, .inputPassword).borderDarkTheme */ {
     border: 1px solid var(--Bg-Generic-Color);
+}
+
+nav li,
+input,
+button:not(button:disabled) {
+  transition: transform 0.1s ease;
+  transform: scale(1);
+}
+
+nav li,
+input,
+button:not(button:disabled, .btnTheme, .btnSaltaDentro) {
+  transition: box-shadow 0.1s ease;
+  box-shadow: none;
+}
+
+nav li:hover,
+input:hover,
+button:not(button:disabled, .btnTheme, .btnSaltaDentro):hover {
+  box-shadow: 0 0 8px var(--White-Color);
+}
+
+nav li:active,
+input:active,
+button:not(button:disabled):active {
+  transform: scale(0.94);
+}
+
+nav li:active,
+input:active,
+button:not(button:disabled, .btnTheme, .btnSaltaDentro):active {
+  box-shadow: 0 0 8px var(--White-Color);
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 8px var(--White-Color);
+}
+
+input:disabled,
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 i {
@@ -306,9 +342,6 @@ nav li {
     background: var(--Bg-Container-Color1);
     /* border: 1px solid var(--Bg-Container-Color1); */
     padding: 4px;
-}
-
-nav a {
     display: flex;
     align-items: center;
 }
