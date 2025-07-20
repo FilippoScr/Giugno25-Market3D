@@ -17,13 +17,15 @@
 
         <nav>
             <ul>
-                <li><a href="../index.html"><i class="fa-solid fa-house"></i><span>Torna alla Home!</span></a></li>
+                <li id="liHome"><i class="fa-solid fa-house"></i><span>Torna alla Home!</span></li>
             </ul>
         </nav>
         <main style="display: block; text-align: center; width: 100%;">
             <h2 style="width: auto;">Pagina non prevista per l'esercizio, torna indietro... Grazie per la visita!</h2>
         </main>
     </div>
+    <script>document.getElementById("liHome").addEventListener('mousedown', () => {
+    window.location.href = "../index.html"});</script>
 </body>
 
 </html>

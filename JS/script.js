@@ -100,12 +100,10 @@ const navLi = [{ id: "liHome", href: "index.html" },
 { id: "liContact", href: "../pages/pageEmpty.html" }];
 
 navLi.forEach(item => {
-  document.getElementById(item.id).addEventListener('click', () => {
+  document.getElementById(item.id).addEventListener('mousedown', () => {
     window.location.href = item.href;
   });
 });
-
-
 
 // Gestione Salta dentro!.
 const btnSaltaDentro = document.getElementById('btnSaltaDentro');
