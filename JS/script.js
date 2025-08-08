@@ -109,7 +109,7 @@ navLi.forEach(item => {
 const btnSaltaDentro = document.getElementById('btnSaltaDentro');
 const loginForm = document.getElementById('loginForm');
 
-btnSaltaDentro.addEventListener('click', function (e) {
+btnSaltaDentro.addEventListener('mousedown', function (e) {
   e.stopPropagation(); // Ferma la propagazione del click nel DOM.
   loginForm.style.display = (loginForm.style.display === 'block') ? 'none' : 'block';
   if (loginForm.style.display === 'block') {
@@ -117,11 +117,11 @@ btnSaltaDentro.addEventListener('click', function (e) {
   }
 });
 
-document.addEventListener('click', function () {
+document.addEventListener('mousedown', function () {
   loginForm.style.display = 'none';
 });
 
-loginForm.addEventListener('click', function (e) {
+loginForm.addEventListener('mousedown', function (e) {
   e.stopPropagation(); // Se clicchi dentro il form, esso non si chiude.
 });
 
@@ -139,10 +139,10 @@ function enabledDisabledBtnLoginForm() {
 
   listenerEmailPw();
 
-  btnRegister.onclick = function (e) {
+  btnRegister.onmousedown = function (e) {
     e.stopPropagation();
     if (!btnRegister.disabled) {
-      window.location.href = "registrazione.html";
+      window.location.href = "../pages/pageEmpty.html";
     }
   };
 
@@ -152,6 +152,13 @@ function enabledDisabledBtnLoginForm() {
   Password.addEventListener('input', listenerEmailPwDebounced);
 }
 
+// Risoluzione click ai bordi del button accedi che non faceva comparire messaggio di errore compilazione e non faceva funzionare il button:
+document.getElementById('btnLogin').addEventListener('mousedown', function (e) {
+  e.preventDefault(); // Evita interferenze col click
+  setTimeout(() => {
+    document.getElementById('loginForm').requestSubmit();
+  }, 0); // Invio nella prossima "tick" dell'evento
+});
 // Cambiamenti dopo l'accesso:
 document.getElementById('loginForm').addEventListener('submit', function (e) {
   e.preventDefault(); // Evita il comportamento predefinito di invio form
@@ -170,7 +177,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
   const divInterno = document.querySelector('#loginForm > div');
   divInterno.innerHTML = '<button type="button" id="btnLogout" class="btnLogout noColor">Scollegati!</button>';
 
-  document.getElementById('btnLogout').addEventListener('click', function () {
+  document.getElementById('btnLogout').addEventListener('mousedown', function () {
     // Cancella dati di autenticazione o carrello
     localStorage.clear();
     sessionStorage.clear();
@@ -259,7 +266,7 @@ function creaArticoli(param = artArray) {
     // Crea il bottone e aggiungi l'event listener:
     const btnAggiungi = document.createElement("button");
     btnAggiungi.innerHTML = `Aggiungi al carrello <i class="fa-solid fa-cart-plus"></i>`;
-    btnAggiungi.addEventListener("click", () => {
+    btnAggiungi.addEventListener('mousedown', () => {
       aggiungiAlCarrello(articolo);
       const boxImgDivAvviso = div.querySelector('.box_img-divAvviso');
       avviso(boxImgDivAvviso);
@@ -366,7 +373,7 @@ function eliminaProdotto(articolo) {
 }
 
 // Svuota il carrello:
-document.getElementById('btnTrashCart').addEventListener('click', function () {
+document.getElementById('btnTrashCart').addEventListener('mousedown', function () {
   carrello.length = 0; // Svuota l'array carrello
   aggiornaLista();     // Aggiorna la vista e disabilita il bottone se vuoto
   const divAvvisi = document.querySelectorAll('.articolo .divAvviso');
@@ -374,7 +381,7 @@ document.getElementById('btnTrashCart').addEventListener('click', function () {
 });
 
 // Simula il comportamento del link Acquista...:
-document.getElementById('btnCartAcq').addEventListener('click', function () {
+document.getElementById('btnCartAcq').addEventListener('mousedown', function () {
   window.location.href = "../pages/pageEmpty.html";
 });
 
@@ -421,7 +428,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const icon = btn.querySelector('i');
   const html = document.documentElement;
 
-  btn.addEventListener('click', function () {
+  btn.addEventListener('mousedown', function () {
     // Leggi il tema attuale
     const temaAttuale = html.getAttribute('data-theme');
     // Cambia tema
@@ -454,7 +461,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Ricerca solo al click del pulsante cerca:
-  searchButton.addEventListener("click", ricerca);
+  searchButton.addEventListener('mousedown', ricerca);
 
   // Impedisce l'inserimento di valori inferiori a 1 negli input (anche quelli creati dinamicamente dopo il caricamento pagina):
   const container = document.getElementById('boxMainAside');

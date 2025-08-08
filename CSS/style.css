@@ -122,6 +122,17 @@ a {
     text-decoration: none;
 }
 
+input:focus {
+    outline: none;
+    box-shadow: 0 0 8px var(--White-Color);
+}
+
+input:disabled,
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 input:not(header input, .inputSearch) {
     width: 50px;
 }
@@ -163,40 +174,51 @@ button:not(button:disabled) {
   transform: scale(1);
 }
 
-nav li,
+[data-theme="dark"] nav li,
 input,
 button:not(button:disabled, .btnTheme, .btnSaltaDentro) {
   transition: box-shadow 0.1s ease;
   box-shadow: none;
 }
 
-nav li:hover,
+nav li:active,
+input:active,
+button:not(button:disabled):active {
+    transform: scale(0.94);
+}
+
+[data-theme="dark"] nav li:active,
+input:active,
+button:not(button:disabled, .btnTheme, .btnSaltaDentro):active {
+    box-shadow: 0 0 8px var(--White-Color);
+}
+
+[data-theme="dark"] .btnTheme i,
+[data-theme="dark"] .btnTheme span,
+[data-theme="dark"] .btnSaltaDentro i,
+[data-theme="dark"] .btnSaltaDentro span {
+  transition: text-shadow 0.1s ease;
+  text-shadow: none;
+}
+
+[data-theme="dark"] .btnTheme:active i,
+[data-theme="dark"] .btnTheme:active span,
+[data-theme="dark"] .btnSaltaDentro:active i,
+[data-theme="dark"] .btnSaltaDentro:active span {
+    text-shadow: 0 0 6px var(--White-Color);
+}
+
+[data-theme="dark"] nav li:hover,
 input:hover,
 button:not(button:disabled, .btnTheme, .btnSaltaDentro):hover {
   box-shadow: 0 0 8px var(--White-Color);
 }
 
-nav li:active,
-input:active,
-button:not(button:disabled):active {
-  transform: scale(0.94);
-}
-
-nav li:active,
-input:active,
-button:not(button:disabled, .btnTheme, .btnSaltaDentro):active {
-  box-shadow: 0 0 8px var(--White-Color);
-}
-
-input:focus {
-    outline: none;
-    box-shadow: 0 0 8px var(--White-Color);
-}
-
-input:disabled,
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+[data-theme="dark"] .btnTheme:hover i,
+[data-theme="dark"] .btnTheme:hover span,
+[data-theme="dark"] .btnSaltaDentro:hover i,
+[data-theme="dark"] .btnSaltaDentro:hover span {
+    text-shadow: 0 0 6px var(--White-Color);
 }
 
 i {
@@ -621,6 +643,7 @@ footer {
     /* HEADER */
     header span:not(h1 span),
     a,
+    nav span,
     .msgArtNonTrovato {
         font-size: 13px;
         font-weight: 600;
@@ -722,6 +745,10 @@ footer {
 
 /* max 479px: extra perfezionamento cart e main */
 @media (max-width: 479px) {
+    body {
+        padding: 10px;
+    }
+
     h1 {
         font-size: 1.6em;
     }
@@ -733,9 +760,6 @@ footer {
 
     nav li {
         padding: 2px;
-    }
-
-    nav a {
         flex-direction: column;
     }
 
@@ -801,6 +825,7 @@ footer {
 
     header span:not(h1 span),
     a,
+    nav span,
     .msgArtNonTrovato {
         font-size: 17.4px;
         font-weight: 600;
